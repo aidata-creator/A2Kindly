@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Data Ops | AI Data Operations & BPO</title>
+    <meta name="description" content="Human-delivered, AI-accelerated data operations delivered from Manila. Priced per output — not per seat.">
+    
+    <!-- OpenGraph & Social Sharing Meta Tags -->
+    <meta property="og:title" content="Nexus Data Ops | AI Data Operations">
+    <meta property="og:description" content="Human-delivered, AI-accelerated data operations delivered from Manila. Priced per output — not per seat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nexusdataops.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Schema.org Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Nexus Data Ops",
+        "url": "https://nexusdataops.com",
+        "logo": "https://nexusdataops.com/logo.png",
+        "description": "Human-delivered, AI-accelerated data operations delivered from Manila.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Manila",
+          "addressCountry": "Philippines"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does per-output pricing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You only pay for validated, error-free outputs. Defective units or edge cases that fail quality checks are not billed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast can we launch a team?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our Manila operations team can be onboarded, trained, and live within 2 to 3 weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in the Free 100-Unit Pilot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We process your first 100 units of data for free so you can benchmark our accuracy and speed before committing."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --cyan-neon: #00f2fe;
+            --accent: #4facfe;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --border-color: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Futuristic Background Canvas */
+        #neural-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 5rem 1rem 3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--cyan-neon);
+            border: 1px solid var(--cyan-neon);
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--cyan-neon), var(--accent));
+            color: #000;
+            font-weight: 700;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Comparison Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+        }
+
+        .card h3 {
+            color: var(--cyan-neon);
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        /* Audit Form Section */
+        .audit-form-card {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(3, 7, 18, 0.95));
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin: 5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .audit-form-card h2 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .audit-form-card p {
+            color: var(--text-muted);
+        }
+
+        .audit-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            max-width: 520px;
+            margin: 2rem auto 0;
+        }
+
+        .audit-form input {
+            flex: 1;
+            min-width: 260px;
+            padding: 0.875rem 1.25rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: #111827;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .audit-form input:focus {
+            border-color: var(--cyan-neon);
+        }
+
+        .audit-form button {
+            background: var(--cyan-neon);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            padding: 0.875rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .audit-form button:hover {
+            background: #38ef7d;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-section {
+            margin: 5rem 0;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1.25rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .faq-question {
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            outline: none;
+        }
+
+        .faq-answer {
+            margin-top: 0.75rem;
+            color: #d1d5db;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Canvas Component -->
+    <canvas id="neural-canvas"></canvas>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header>
+            <span class="badge">🎁 Free 100-Unit Pilot Included</span>
+            <h1>AI data operations, run by people who own the outcome.</h1>
+            <p class="subtitle">
+                Delivered from Manila. Live in 2–3 weeks. 
+                Priced per output — not per seat.
+            </p>
+            <a href="#audit" class="cta-btn">Claim Your Free Audit</a>
+        </header>
+
+        <!-- Positioning & Comparison Section -->
+        <section class="grid">
+            <div class="card">
+                <h3>The Seat-Seller Dilemma</h3>
+                <p>Traditional BPOs bill by the hour or by the seat. They are financially disincentivized to build efficient workflows or automate redundant tasks.</p>
+            </div>
+            <div class="card">
+                <h3>The Automation Trap</h3>
+                <p>Pure-AI vendors collapse on edge cases. When complex data models fail, accuracy drops drastically and human intervention becomes messy and slow.</p>
+            </div>
+            <div class="card">
+                <h3>Our Hybrid Model</h3>
+                <p>Human-in-the-Loop workflows combining automated AI pipelines with expert human validation. Pay only for verified, error-free outputs.</p>
+            </div>
+        </section>
+
+        <!-- Lead Audit Form -->
+        <section id="audit" class="audit-form-card">
+            <h2>Get Your 2-Minute Data Ops Audit</h2>
+            <p>Discover how much you can save by switching to output-based pricing.</p>
+            <form class="audit-form" action="/api/quiz-lead" method="POST">
+                <input type="email" name="email" placeholder="Enter your work email" required aria-label="Work Email">
+                <button type="submit">Start Audit</button>
+            </form>
+        </section>
+
+        <!-- FAQ Accordion Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <details class="faq-item">
+                <summary class="faq-question">How does per-output pricing work?</summary>
+                <div class="faq-answer">
+                    <p>You only pay for validated, error-free outputs. Defective units or edge cases that fail quality checks are not billed.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">How fast can we launch a team?</summary>
+                <div class="faq-answer">
+                    <p>Our Manila operations team can be onboarded, trained, and live within 2 to 3 weeks.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">What is included in the Free 100-Unit Pilot?</summary>
+                <div class="faq-answer">
+                    <p>We process your first 100 units of data for free so you can benchmark our accuracy and speed before committing to a plan.</p>
+                </div>
+            </details>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Nexus Data Ops. All rights reserved. Human-in-the-Loop AI Operations.</p>
+        </footer>
+    </div>
+
+    <!-- Neural Canvas Animation Script -->
+    <script>
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particles = Array.from({ length: 45 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4
+        }));
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00f2fe';
+            
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Connect nearby particles with lines
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
