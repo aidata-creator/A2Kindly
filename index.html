@@ -1,413 +1,1531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Data Ops | AI Data Operations & BPO</title>
-    <meta name="description" content="Human-delivered, AI-accelerated data operations delivered from Manila. Priced per output — not per seat.">
-    
-    <!-- OpenGraph & Social Sharing Meta Tags -->
-    <meta property="og:title" content="Nexus Data Ops | AI Data Operations">
-    <meta property="og:description" content="Human-delivered, AI-accelerated data operations delivered from Manila. Priced per output — not per seat.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nexusdataops.com">
-    <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Schema.org Structured Data for Rich Snippets -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Nexus Data Ops",
-        "url": "https://nexusdataops.com",
-        "logo": "https://nexusdataops.com/logo.png",
-        "description": "Human-delivered, AI-accelerated data operations delivered from Manila.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Manila",
-          "addressCountry": "Philippines"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does per-output pricing work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You only pay for validated, error-free outputs. Defective units or edge cases that fail quality checks are not billed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How fast can we launch a team?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our Manila operations team can be onboarded, trained, and live within 2 to 3 weeks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is included in the Free 100-Unit Pilot?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We process your first 100 units of data for free so you can benchmark our accuracy and speed before committing."
-            }
-          }
-        ]
-      }
+  <!-- ============ SEO & SOCIAL METADATA ============ -->
+  <title>Kindly — Human-delivered, AI-accelerated | AI Data Operations & BPO</title>
+  <meta name="description" content="Kindly runs AI data operations, annotation, evaluation, and back-office work from Manila. Teams live in 2–3 weeks. Priced per output, not per seat. Book a discovery call.">
+  <link rel="canonical" href="https://kindly.ph/">
+  <meta property="og:title" content="Kindly — Human-delivered, AI-accelerated">
+  <meta property="og:description" content="Annotation, evaluation, QA, and back-office operations for AI, e-commerce, and fintech teams. Delivered from Manila. Live in 2–3 weeks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kindly.ph/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ============ JSON-LD SCHEMA ============ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Kindly",
+    "url":"https://kindly.ph",
+    "email":"hello@kindly.ph",
+    "description":"AI data operations and impact-sourcing BPO based in Manila, Philippines. Annotation, model evaluation, QA, KYC review, and back-office operations, priced per output.",
+    "address":{"@type":"PostalAddress","addressLocality":"Manila","addressCountry":"PH"},
+    "founder":[{"@type":"Person","name":"Mark Ruiz"},{"@type":"Person","name":"Reese Fernandez-Ruiz"}],
+    "parentOrganization":{"@type":"Organization","name":"Atin Group"},
+    "sameAs":["https://www.linkedin.com/company/kindly-ph"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How do you guarantee quality with a distributed workforce?","acceptedAnswer":{"@type":"Answer","text":"Every unit passes multi-layer QA: gold-standard calibration tasks, double-blind sampling, and dedicated QA analysts at roughly one per fifteen specialists. Accuracy rates appear on a weekly dashboard and SLAs carry credits. With per-output pricing, defective units are never billed."}},
+      {"@type":"Question","name":"How do you handle data security and privacy?","acceptedAnswer":{"@type":"Answer","text":"Client data is accessed through controlled environments with role-based access and NDA-bound specialists. For sensitive engagements we use virtual desktop setups where data never leaves your infrastructure. We work under your data processing agreement and are building toward ISO 27001."}},
+      {"@type":"Question","name":"What about time zones?","acceptedAnswer":{"@type":"Answer","text":"Output-based work is asynchronous: you send volume, we return QA'd results against a turnaround SLA. For real-time coverage we staff to your business hours. The Philippines overlaps naturally with Australia and Asia, and we run dedicated shifts for US and European hours."}},
+      {"@type":"Question","name":"Why the Philippines?","acceptedAnswer":{"@type":"Answer","text":"The world's most experienced outsourcing workforce, with exceptional English fluency, deep familiarity with Western business culture, and among the highest AI-tool adoption rates of any workforce globally."}},
+      {"@type":"Question","name":"Isn't fair pay going to make you more expensive?","acceptedAnswer":{"@type":"Answer","text":"All-in rates are competitive with any quality Philippine provider, typically well below onshore equivalents. Fair pay reduces attrition, retraining and error rates, so you get a stable team that keeps your context instead of a revolving door."}}
     ]
-    </script>
+  }
+  </script>
 
-    <style>
-        :root {
-            --bg-dark: #030712;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --cyan-neon: #00f2fe;
-            --accent: #4facfe;
-            --card-bg: rgba(17, 24, 39, 0.75);
-            --border-color: #1f2937;
-        }
+  <!-- ============ FONTS ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --bg-color: #030712;
+      --card-bg: rgba(15, 23, 42, 0.65);
+      --card-border: rgba(0, 242, 254, 0.15);
+      --card-hover-border: rgba(0, 242, 254, 0.6);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #d8835e;
+      --accent-glow: rgba(216, 131, 94, 0.4);
+      --cyan-neon: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-        /* Futuristic Background Canvas */
-        #neural-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.35;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
+    /* Accessibility Focus */
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--cyan-neon);
+      outline-offset: 3px;
+    }
 
-        /* Hero Section */
-        header {
-            text-align: center;
-            padding: 5rem 1rem 3rem;
-        }
+    /* Interactive Neural Canvas */
+    #neural-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+    }
 
-        .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
-            color: var(--cyan-neon);
-            border: 1px solid var(--cyan-neon);
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
-        }
+    /* Futuristic Cyber Grid Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(216, 131, 94, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 85% 60%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
+        linear-gradient(to right, rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      z-index: -1;
+    }
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.2;
-            margin-bottom: 1.25rem;
-            font-weight: 800;
-        }
+    /* Top Cyber Accent Line */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--cyan-neon) 40%, var(--accent) 70%, transparent 100%);
+      z-index: 100;
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 720px;
-            margin: 0 auto 2.5rem;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-        .cta-btn {
-            background: linear-gradient(135deg, var(--cyan-neon), var(--accent));
-            color: #000;
-            font-weight: 700;
-            padding: 0.875rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
-        }
+    /* NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.2rem 0;
+    }
 
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(0, 242, 254, 0.5);
-        }
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* Comparison Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 4rem 0;
-        }
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.75rem;
-            backdrop-filter: blur(10px);
-            transition: border-color 0.2s ease;
-        }
+    .logo span { color: var(--cyan-neon); }
 
-        .card:hover {
-            border-color: rgba(0, 242, 254, 0.4);
-        }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+      list-style: none;
+    }
 
-        .card h3 {
-            color: var(--cyan-neon);
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      transition: color 0.2s ease;
+    }
 
-        /* Audit Form Section */
-        .audit-form-card {
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(3, 7, 18, 0.95));
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            margin: 5rem 0;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
+    .nav-links a:hover { color: var(--cyan-neon); }
 
-        .audit-form-card h2 {
-            margin-top: 0;
-            font-size: 2rem;
-        }
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--accent) 0%, #b8603b 100%);
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px var(--accent-glow);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .audit-form-card p {
-            color: var(--text-muted);
-        }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+    }
 
-        .audit-form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-            max-width: 520px;
-            margin: 2rem auto 0;
-        }
+    .btn:hover::before { left: 100%; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(216, 131, 94, 0.7); }
 
-        .audit-form input {
-            flex: 1;
-            min-width: 260px;
-            padding: 0.875rem 1.25rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: #111827;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-        }
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      box-shadow: none;
+    }
 
-        .audit-form input:focus {
-            border-color: var(--cyan-neon);
-        }
+    .btn-ghost:hover {
+      border-color: var(--cyan-neon);
+      color: var(--cyan-neon);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+    }
 
-        .audit-form button {
-            background: var(--cyan-neon);
-            color: #000;
-            border: none;
-            font-weight: 700;
-            padding: 0.875rem 1.5rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.2s ease;
-        }
+    .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
 
-        .audit-form button:hover {
-            background: #38ef7d;
-        }
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      max-width: 920px;
+      margin: 0 auto;
+    }
 
-        /* FAQ Accordion Section */
-        .faq-section {
-            margin: 5rem 0;
-        }
+    .live-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(0, 242, 254, 0.05);
+      color: var(--cyan-neon);
+      padding: 0.4rem 1.1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    }
 
-        .faq-section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background-color: var(--cyan-neon);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--cyan-neon);
+      animation: pulse 2s infinite;
+    }
 
-        .faq-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            padding: 1.25rem;
-            backdrop-filter: blur(8px);
-        }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+    }
 
-        .faq-question {
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            outline: none;
-        }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.65) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(0, 242, 254, 0.2);
+    }
 
-        .faq-answer {
-            margin-top: 0.75rem;
-            color: #d1d5db;
-        }
+    .hero h1 span {
+      font-style: italic;
+      color: var(--accent);
+      -webkit-text-fill-color: var(--accent);
+    }
 
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.875rem;
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 760px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .micro-text {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* CREDIBILITY BANNER */
+    .cred-banner {
+      background: rgba(15, 23, 42, 0.8);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.8rem 0;
+      margin-bottom: 5rem;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .cred-grid strong { color: var(--text-main); }
+
+    /* SECTION TITLES */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan-neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    /* PILLARS & CARDS */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pillar-card .num {
+      font-family: var(--font-mono);
+      color: var(--cyan-neon);
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* BROKER / POSITIONING */
+    .broker-box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--cyan-neon);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+    }
+
+    .broker-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .broker-box p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .broker-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .broker-list li {
+      background: rgba(3, 7, 18, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .broker-list li strong { color: var(--cyan-neon); }
+
+    /* HUMAN IN THE LOOP NETWORK */
+    .hitl-network-wrapper {
+      max-width: 1050px;
+      margin: 0 auto 5rem;
+      padding: 2.5rem 1.5rem;
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .hitl-core-node {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    .hitl-core-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid var(--cyan-neon);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--cyan-neon);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+      position: relative;
+      z-index: 3;
+    }
+
+    .hitl-core-node::after {
+      content: '';
+      position: absolute;
+      bottom: -3.5rem; left: 50%;
+      width: 2px; height: 3.5rem;
+      background: linear-gradient(to bottom, var(--cyan-neon), var(--card-border));
+      z-index: 1;
+    }
+
+    .hierarchy-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hierarchy-level {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .level-head .hitl-card, .level-manager .hitl-card { width: 240px; }
+    .level-leads .hitl-card { width: 210px; }
+    .level-staff .hitl-card { width: 200px; }
+
+    .hitl-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.5rem 0.75rem 1.25rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hitl-card.highlight-card {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(216, 131, 94, 0.2);
+    }
+
+    .hitl-card .avatar-box {
+      width: 75px; height: 75px;
+      margin: 0 auto 0.65rem;
+      position: relative;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .hitl-card img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hitl-card .avatar-placeholder {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--cyan-neon);
+    }
+
+    .hitl-card .name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .hitl-card .title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan-neon);
+      margin-top: 0.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hitl-card .tools-bar {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(248, 250, 252, 0.5);
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 0.5rem;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .hitl-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(216, 131, 94, 0.25);
+    }
+
+    /* SERVICES GRID */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      padding: 2.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card.feat {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+    }
+
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--cyan-neon);
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card ul {
+      list-style: none;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card ul li {
+      color: var(--text-main);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.2rem;
+      font-family: var(--font-mono);
+    }
+
+    .card ul li::before {
+      content: ">";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+      padding-top: 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .card-footer strong { color: var(--text-main); }
+
+    /* TIMELINE & NUMBERS */
+    .timeline-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 3.5rem 2rem;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .timeline-item .time {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--cyan-neon);
+      margin-bottom: 0.25rem;
+      text-shadow: 0 0 25px var(--cyan-glow);
+    }
+
+    .timeline-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .price-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .price-card h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .price-card .sub { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan-neon); text-transform: uppercase; margin-bottom: 1rem; }
+    .price-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .price-card .amount { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent); font-weight: 700; }
+
+    /* OUR STORY & IMPACT */
+    .our-story-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 3.5rem 2.5rem;
+      margin-bottom: 5rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .story-card {
+      background: rgba(3, 7, 18, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 1.8rem;
+      border-radius: 12px;
+    }
+
+    .story-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--cyan-neon);
+      margin-bottom: 0.8rem;
+    }
+
+    .story-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    .story-quote {
+      margin-top: 2.5rem;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 242, 254, 0.03);
+      border: 1px dashed var(--cyan-neon);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+    }
+
+    /* FOUNDERS / LEADERSHIP */
+    .testimonials-section { margin-bottom: 5rem; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-card p {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1rem;
+    }
+
+    .testimonial-author .author-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      object-fit: cover;
+    }
+
+    .testimonial-author h4 { font-family: var(--font-heading); font-size: 1rem; }
+    .testimonial-author span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan-neon); }
+
+    /* INTERACTIVE QUIZ */
+    .quiz-section {
+      background: rgba(10, 16, 31, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--cyan-neon);
+      border-radius: 16px;
+      padding: 3.5rem 2rem;
+      margin-bottom: 5rem;
+      max-width: 850px;
+      margin-left: auto; margin-right: auto;
+      box-shadow: 0 0 50px rgba(0, 242, 254, 0.15);
+    }
+
+    .quiz-progress {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--cyan-neon));
+      width: 33%;
+      transition: width 0.4s ease;
+    }
+
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeIn 0.4s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-step h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .quiz-option-btn {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .quiz-option-btn:hover, .quiz-option-btn.selected {
+      border-color: var(--cyan-neon);
+      background: rgba(0, 242, 254, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .quiz-gate {
+      border-top: 1px solid var(--card-border);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .quiz-gate p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+    .quiz-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quiz-form input {
+      background: rgba(3, 7, 18, 0.8);
+      border: 1px solid var(--card-border);
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: var(--font-body);
+    }
+
+    /* INDUSTRIES */
+    .industries-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+
+    .industry-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.75rem;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+      color: #fff;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-section { margin-bottom: 5rem; }
+
+    details {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      padding: 1.2rem 1.5rem;
+    }
+
+    summary {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--cyan-neon); font-size: 1.5rem; }
+    details[open] summary::after { content: "–"; }
+
+    details p {
+      margin-top: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* BOOKING & FOOTER */
+    .booking-section { text-align: center; margin-bottom: 5rem; }
+
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 2rem;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      font-family: var(--font-mono);
+    }
+
+    footer a { color: var(--cyan-neon); text-decoration: none; }
+
+    @media (max-width: 850px) {
+      .hero h1 { font-size: 2.5rem; }
+      .broker-box { grid-template-columns: 1fr; }
+      .quiz-form { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+
+  <!-- External Scripts -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6a62117cbd80ee072db5efa6' },
+            url: 'https://general-runtime.voiceflow.com',
+            voice: { url: "https://runtime-api.voiceflow.com" }
+          });
         }
-    </style>
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+        v.type = "text/javascript"; 
+        s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
 </head>
 <body>
 
-    <!-- Animated Canvas Component -->
-    <canvas id="neural-canvas"></canvas>
+  <!-- Neural Network Canvas background -->
+  <canvas id="neural-canvas"></canvas>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <header>
-            <span class="badge">🎁 Free 100-Unit Pilot Included</span>
-            <h1>AI data operations, run by people who own the outcome.</h1>
-            <p class="subtitle">
-                Delivered from Manila. Live in 2–3 weeks. 
-                Priced per output — not per seat.
-            </p>
-            <a href="#audit" class="cta-btn">Claim Your Free Audit</a>
-        </header>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="/">kindly<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#timeline">How it works</a></li>
+        <li><a href="#story">About</a></li>
+      </ul>
+      <a href="#book" class="btn btn-sm">Book a Call</a>
+    </div>
+  </header>
 
-        <!-- Positioning & Comparison Section -->
-        <section class="grid">
-            <div class="card">
-                <h3>The Seat-Seller Dilemma</h3>
-                <p>Traditional BPOs bill by the hour or by the seat. They are financially disincentivized to build efficient workflows or automate redundant tasks.</p>
-            </div>
-            <div class="card">
-                <h3>The Automation Trap</h3>
-                <p>Pure-AI vendors collapse on edge cases. When complex data models fail, accuracy drops drastically and human intervention becomes messy and slow.</p>
-            </div>
-            <div class="card">
-                <h3>Our Hybrid Model</h3>
-                <p>Human-in-the-Loop workflows combining automated AI pipelines with expert human validation. Pay only for verified, error-free outputs.</p>
-            </div>
-        </section>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="live-status">
+        <span class="pulse-dot"></span> MANILA, PH · SERVING CLIENTS WORLDWIDE
+      </div>
+      <h1>AI data operations, run by people who <span>own the outcome</span>.</h1>
+      <p>Annotation, evaluation, QA, and back-office operations for AI, e-commerce, and fintech teams. Delivered from Manila. <strong>Live in 2–3 weeks.</strong> Priced per output — not per seat.</p>
+      
+      <div class="cta-group">
+        <a href="#book" class="btn">Book a 20-min Discovery Call</a>
+        <a href="#quiz" class="btn btn-ghost">Take 30-Sec Automation Audit</a>
+      </div>
+      <p class="micro-text">No commitment · Talk directly to leadership · Response within 24 hours</p>
+    </section>
 
-        <!-- Lead Audit Form -->
-        <section id="audit" class="audit-form-card">
-            <h2>Get Your 2-Minute Data Ops Audit</h2>
-            <p>Discover how much you can save by switching to output-based pricing.</p>
-            <form class="audit-form" action="/api/quiz-lead" method="POST">
-                <input type="email" name="email" placeholder="Enter your work email" required aria-label="Work Email">
-                <button type="submit">Start Audit</button>
-            </form>
-        </section>
-
-        <!-- FAQ Accordion Section -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
-            <details class="faq-item">
-                <summary class="faq-question">How does per-output pricing work?</summary>
-                <div class="faq-answer">
-                    <p>You only pay for validated, error-free outputs. Defective units or edge cases that fail quality checks are not billed.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">How fast can we launch a team?</summary>
-                <div class="faq-answer">
-                    <p>Our Manila operations team can be onboarded, trained, and live within 2 to 3 weeks.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">What is included in the Free 100-Unit Pilot?</summary>
-                <div class="faq-answer">
-                    <p>We process your first 100 units of data for free so you can benchmark our accuracy and speed before committing to a plan.</p>
-                </div>
-            </details>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Nexus Data Ops. All rights reserved. Human-in-the-Loop AI Operations.</p>
-        </footer>
+    <!-- Credibility Strip -->
+    <div class="cred-banner">
+      <div class="cred-grid">
+        <div>Founded by the team behind <strong>Hapinoy</strong> and <strong>Rags2Riches</strong></div>
+        <div><strong>20+ years</strong> building impact-driven operations in Southeast Asia</div>
+        <div><strong>English-fluent &amp; AI-fluent</strong> workforce in Manila</div>
+        <div>Every specialist is <strong>fairly paid</strong> with portable benefits</div>
+      </div>
     </div>
 
-    <!-- Neural Canvas Animation Script -->
-    <script>
-        const canvas = document.getElementById('neural-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    <!-- The Problem / Positioning -->
+    <section>
+      <div class="section-title">
+        <h2>AI Broke the Old Outsourcing Model</h2>
+        <p>// THE SEAT-SELLER'S DILEMMA VS THE AUTOMATION TRAP</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="num">01</span>
+          <h3>The Seat-Seller's Dilemma</h3>
+          <p>Traditional BPOs bill by headcount. Every workflow they automate is revenue lost — so they stay manual. You keep paying for seats software should have optimized years ago.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="num">02</span>
+          <h3>The Automation Trap</h3>
+          <p>Pure-AI tools automate everything until accuracy drops on complex edge cases, escalations, and brand voice. When software hallucinates, errors reach your users.</p>
+        </div>
+      </div>
+
+      <div class="broker-box">
+        <div>
+          <h3>We're paid on results. That changes everything.</h3>
+          <p>Seat-billers profit when nothing changes. AI-only vendors profit when everything is automated regardless of accuracy. We assess each workflow and apply software where it accelerates and humans where nuance matters.</p>
+        </div>
+        <ul class="broker-list">
+          <li><strong>Automate</strong> — Repetitive, rule-based, high-volume tasks</li>
+          <li><strong>Human-in-the-Loop</strong> — Nuance, evaluation, and quality assurance</li>
+          <li><strong>One Partner</strong> — Full SLA accountability and real-time dashboards</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Human-in-the-Loop Network -->
+    <section style="position: relative;">
+      <div class="section-title">
+        <h2>Human-in-the-Loop Network</h2>
+        <p>// REAL HUMANS OVERSIGHTING & GUARANTEEING EVERY WORKFLOW</p>
+      </div>
+
+      <div class="hitl-network-wrapper">
+        <div class="hitl-core-node">
+          <div class="hitl-core-badge">
+            <span class="pulse-dot"></span> AI Engines + Multi-Layer Human Verification
+          </div>
+        </div>
+
+        <div class="hierarchy-layout">
+          <!-- Level 1 -->
+          <div class="hierarchy-level level-head">
+            <div class="hitl-card highlight-card">
+              <div class="avatar-box"><div class="avatar-placeholder">M</div></div>
+              <div class="name">Macar</div>
+              <div class="title">Head of Operations</div>
+              <div class="tools-bar">Ops Strategy • SLA Delivery</div>
+            </div>
+          </div>
+
+          <!-- Level 2 -->
+          <div class="hierarchy-level level-manager">
+            <div class="hitl-card highlight-card">
+              <div class="avatar-box"><div class="avatar-placeholder">J</div></div>
+              <div class="name">Jeh</div>
+              <div class="title">Operations Manager</div>
+              <div class="tools-bar">Quality Reports • Oversight</div>
+            </div>
+          </div>
+
+          <!-- Level 3 -->
+          <div class="hierarchy-level level-leads">
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">M</div></div>
+              <div class="name">Mico</div>
+              <div class="title">Data Operations Lead</div>
+              <div class="tools-bar">Workflows • Integrity</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">F</div></div>
+              <div class="name">Fred</div>
+              <div class="title">Systems Development</div>
+              <div class="tools-bar">Integrations • Bots</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">A</div></div>
+              <div class="name">Allan</div>
+              <div class="title">Database & Admin</div>
+              <div class="tools-bar">SQL • Pipelines</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">R</div></div>
+              <div class="name">Riza</div>
+              <div class="title">Team Leader</div>
+              <div class="tools-bar">QA • AI Review</div>
+            </div>
+          </div>
+
+          <!-- Level 4 -->
+          <div class="hierarchy-level level-staff">
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">A</div></div>
+              <div class="name">Aira</div>
+              <div class="title">Data Auditor</div>
+              <div class="tools-bar">Audits • Quality</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">T</div></div>
+              <div class="name">Tin</div>
+              <div class="title">Systems Associate</div>
+              <div class="tools-bar">AI Agents • Workflows</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">G</div></div>
+              <div class="name">Grace</div>
+              <div class="title">Onboarding Specialist</div>
+              <div class="tools-bar">Ops • Onboarding</div>
+            </div>
+            <div class="hitl-card">
+              <div class="avatar-box"><div class="avatar-placeholder">C</div></div>
+              <div class="name">Chris</div>
+              <div class="title">Data Admin</div>
+              <div class="tools-bar">Encoding • Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>// WORK SMARTER. GROW FASTER.</p>
+      </div>
+
+      <div class="services">
+        <div class="card feat">
+          <div class="card-tag">Core Service</div>
+          <h3>AI Data Operations</h3>
+          <p>The human foundation behind accurate models. Specialists label, evaluate, and correct data and AI outputs with auditable accuracy.</p>
+          <ul>
+            <li>Data labeling &amp; annotation (Text, Image, Video)</li>
+            <li>RLHF &amp; Model Output Scoring</li>
+            <li>Red-teaming &amp; Safety Review</li>
+          </ul>
+          <div class="card-footer">Priced <strong>per validated unit</strong> · Free 100-unit pilot</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Managed Pods</div>
+          <h3>Managed Operations</h3>
+          <p>Dedicated teams running back-office operations where AI drafts the work and trained humans audit and approve outcomes.</p>
+          <ul>
+            <li>Data encoding &amp; document processing</li>
+            <li>E-commerce catalog management</li>
+            <li>KYC &amp; compliance document reviews</li>
+          </ul>
+          <div class="card-footer">Scale <strong>5 to 100+ specialists</strong> · Live in 2–3 weeks</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Diagnostic</div>
+          <h3>AI Operations Audit</h3>
+          <p>A fixed-fee diagnostic mapping your recurring workflows to identify where to automate vs. keep human oversight.</p>
+          <ul>
+            <li>Workflow bottleneck mapping</li>
+            <li>ROI &amp; tool recommendations</li>
+            <li>90-day execution roadmap</li>
+          </ul>
+          <div class="card-footer">Fixed fee · <strong>100% credited</strong> to future operations</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Upskill</div>
+          <h3>AI Literacy &amp; Training</h3>
+          <p>Practical AI training for your internal workforce so your team learns to leverage AI tools productively and safely.</p>
+          <ul>
+            <li>Customized team curriculum</li>
+            <li>In-person &amp; remote workshops</li>
+            <li>Certification included</li>
+          </ul>
+          <div class="card-footer">Custom programs available</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline / Execution Speed -->
+    <section class="timeline-section" id="timeline">
+      <div class="section-title" style="margin-bottom: 0;">
+        <h2>AI Acceleration, Human at Heart</h2>
+        <p>// FROM FIRST CONTACT TO LIVE OPERATIONS</p>
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-item">
+          <div class="time">24h</div>
+          <p>Response within 24 hours from leadership.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="time">48h</div>
+          <p>Tailored proposal with scope, pricing, and SLAs.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Wk 1</div>
+          <p>Free 100-unit pilot or audit execution.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Wk 2-3</div>
+          <p>Dedicated team trained, calibrated, and live.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+      <div class="section-title">
+        <h2>Pay for Outcomes, Not Chairs</h2>
+        <p>// TRANSPARENT, FLEXIBLE MODEL</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Per Output</h3>
+          <div class="sub">Volume Work</div>
+          <p>Pay per validated record, approved review, or enriched listing. Defective units are never billed.</p>
+          <div class="amount">Usage-based rates</div>
+        </div>
+        <div class="price-card">
+          <h3>Per Dedicated Seat</h3>
+          <p>Named specialists integrated into your ongoing operations for complex processes needing continuity.</p>
+          <div class="amount">Monthly pod pricing</div>
+        </div>
+        <div class="price-card">
+          <h3>Per Outcome</h3>
+          <div class="sub">Resolution Work</div>
+          <p>Pay per resolved ticket or qualified output. Alignment completely aligned with your KPIs.</p>
+          <div class="amount">Scoped per project</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story-section" id="story">
+      <div class="section-title">
+        <h2>Our Story</h2>
+        <p>// ROOTED IN IMPACT. DRIVEN BY INNOVATION.</p>
+      </div>
+      
+      <div class="story-grid">
+        <div class="story-card">
+          <h3>Established Legacy</h3>
+          <p>Our roots run deep in local empowerment through <strong>Hapinoy</strong> and <strong>Rags2Riches</strong>. We bring over 20 years of experience in community impact and operational systems to digital workflows.</p>
+        </div>
+        <div class="story-card">
+          <h3>Bridging Human &amp; AI</h3>
+          <p>Technology shouldn't displace people; it should unleash their potential. We combine automation with skilled professionals to handle high-stakes data operations.</p>
+        </div>
+        <div class="story-card">
+          <h3>Dignified Digital Work</h3>
+          <p>We provide above-market pay and government benefit coverage for our talent, resulting in lower turnover, higher accuracy, and reliable context retention for clients.</p>
+        </div>
+      </div>
+
+      <div class="story-quote">
+        <p>"Combining deep-rooted community impact with enterprise-grade digital execution."</p>
+      </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="testimonials-section">
+      <div class="section-title">
+        <h2>Leadership Note</h2>
+        <p>// FROM OUR FOUNDERS</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"We built Kindly to prove that artificial intelligence shouldn't replace human capability—it should elevate it. Our goal is to give every client a sustainable, human-guided AI advantage."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Mark Ruiz</h4>
+              <span>Co-Founder · Co-founder of Hapinoy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Technology moves fast, but quality and trust remain deeply human. Combining smart automation with rigorous human oversight lets businesses scale smoothly without compromising accuracy."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Reese Fernandez-Ruiz</h4>
+              <span>Co-Founder · Founder of Rags2Riches</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section class="quiz-section" id="quiz">
+      <div class="quiz-container">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quiz-progress"></div>
+        </div>
+
+        <div class="quiz-step active" data-step="1">
+          <h3>1. Where is your biggest operational bottleneck?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Data entry &amp; document processing</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Customer support &amp; ticket triage</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Internal workflow backlogs</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(1)">AI training data &amp; QA review</button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <h3>2. What primary tools do you rely on?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Spreadsheets &amp; Docs</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(2)">CRMs / Helpdesks (HubSpot, Zendesk)</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Custom internal DBs</button>
+            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Emails &amp; PDFs</button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <h3>3. Where should we send your custom recommendation?</h3>
+          <div class="quiz-gate">
+            <p>You'll receive a summary of candidate workflows for automation and estimated ROI savings.</p>
+            <form onsubmit="finishQuiz(event)">
+              <div class="quiz-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Work Email" required>
+              </div>
+              <button type="submit" class="btn" style="width: 100%;">Get Recommendation</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="4">
+          <div style="text-align: center;">
+            <h3 style="color: var(--cyan-neon);">Audit Request Received!</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We are analyzing your inputs and will email you a tailored breakdown shortly.</p>
+            <a href="#book" class="btn btn-sm">Book a Call Immediately</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Badges -->
+    <section class="industries-section" id="industries">
+      <div class="section-title" style="margin-bottom: 1rem;">
+        <h2>Industries We Serve</h2>
+        <p>// SPECIALIZED DATA OPERATIONS</p>
+      </div>
+      <div class="industry-badges">
+        <a href="#book" class="badge">AI &amp; Machine Learning</a>
+        <a href="#book" class="badge">E-commerce &amp; Logistics</a>
+        <a href="#book" class="badge">Fintech &amp; KYC Verification</a>
+        <a href="#book" class="badge">Healthcare Operations</a>
+        <a href="#book" class="badge">Market Research</a>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>// EVERYTHING YOU NEED TO KNOW</p>
+      </div>
+
+      <details open>
+        <summary>How do you guarantee quality with a distributed workforce?</summary>
+        <p>Every unit passes multi-layer QA: gold-standard calibration tasks, double-blind sampling, and dedicated QA analysts. Accuracy rates appear on a weekly dashboard, and defective units are never billed under per-output pricing.</p>
+      </details>
+
+      <details>
+        <summary>How do you handle data security and privacy?</summary>
+        <p>Client data is accessed through controlled environments with role-based access and NDA-bound specialists. For sensitive engagements, we support virtual desktop infrastructure (VDI) so data never leaves your environment.</p>
+      </details>
+
+      <details>
+        <summary>What about time zones?</summary>
+        <p>Output-based work is asynchronous: you send volume, we return QA'd results against a turnaround SLA. For real-time coverage, we run dedicated shifts matching US, European, and APAC hours.</p>
+      </details>
+
+      <details>
+        <summary>Why the Philippines?</summary>
+        <p>The Philippines offers an experienced outsourcing workforce with exceptional English fluency, Western business culture familiarity, and high AI tool adoption rates.</p>
+      </details>
+
+      <details>
+        <summary>Isn't fair pay going to make you more expensive?</summary>
+        <p>Fair pay reduces attrition and error rates, giving you a stable team that maintains context. Combined with our AI speedups, overall operating costs remain lower than traditional BPOs.</p>
+      </details>
+    </section>
+
+    <!-- Booking Widget -->
+    <section class="booking-section" id="book">
+      <div class="section-title" style="margin-bottom: 1rem;">
+        <h2>Book a Discovery Call</h2>
+        <p>// SPEAK DIRECTLY WITH OUR LEADERSHIP TEAM</p>
+      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/d/cqqp-79k-2y3"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Kindly (Atin Group). All rights reserved. Delivered from Manila, PH.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="#services">Services</a> · 
+        <a href="#pricing">Pricing</a> · 
+        <a href="#story">About Us</a> · 
+        <a href="mailto:hello@kindly.ph">hello@kindly.ph</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Interactive Background Canvas Animation Script -->
+  <script>
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = Array.from({ length: 45 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 2 + 1
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(0, 242, 254, ${0.15 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+      });
 
-        const particles = Array.from({ length: 45 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4
-        }));
+      requestAnimationFrame(animate);
+    }
+    animate();
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#00f2fe';
-            
-            particles.forEach((p, i) => {
-                p.x += p.vx;
-                p.y += p.vy;
-                
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    /* Interactive Quiz Navigation Logic */
+    function nextQuizStep(currentStep) {
+      document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
+      const nextStep = currentStep + 1;
+      document.querySelector(`.quiz-step[data-step="${nextStep}"]`).classList.add('active');
+      document.getElementById('quiz-progress').style.width = `${(nextStep / 3) * 100}%`;
+    }
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                ctx.fill();
-
-                // Connect nearby particles with lines
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 120) {
-                        ctx.strokeStyle = `rgba(0, 242, 254, ${1 - dist / 120})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
-    </script>
+    function finishQuiz(event) {
+      event.preventDefault();
+      document.querySelector('.quiz-step[data-step="3"]').classList.remove('active');
+      document.querySelector('.quiz-step[data-step="4"]').classList.add('active');
+      document.getElementById('quiz-progress').style.width = '100%';
+    }
+  </script>
 </body>
 </html>
