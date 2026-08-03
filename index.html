@@ -363,7 +363,7 @@
     /* SECTION TITLES */
     .section-title {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
     }
 
     .section-title h2 {
@@ -380,6 +380,54 @@
       color: var(--text-muted);
       font-family: var(--font-mono);
       font-size: 0.9rem;
+    }
+
+    /* CATEGORY TABS STYLING */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--cyan-neon);
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      background: rgba(0, 242, 254, 0.12);
+      border-color: var(--cyan-neon);
+      color: var(--cyan-neon);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    /* CATEGORY CONTENT WRAPPER */
+    .tab-content {
+      display: none;
+      animation: fadeInTab 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: grid;
+    }
+
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* PILLARS & CARDS */
@@ -460,8 +508,7 @@
     .broker-list li strong { color: var(--cyan-neon); }
 
     /* SERVICES GRID */
-    .services {
-      display: grid;
+    .services-grid {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-bottom: 5rem;
@@ -477,6 +524,11 @@
       position: relative;
       display: flex;
       flex-direction: column;
+    }
+
+    .card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-4px);
     }
 
     .card.feat {
@@ -572,7 +624,6 @@
 
     /* PRICING */
     .pricing-grid {
-      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-bottom: 5rem;
@@ -583,12 +634,14 @@
       border: 1px solid var(--card-border);
       padding: 2rem;
       border-radius: 12px;
+      display: flex;
+      flex-direction: column;
     }
 
     .price-card h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.3rem; }
     .price-card .sub { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan-neon); text-transform: uppercase; margin-bottom: 1rem; }
     .price-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-    .price-card .amount { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent); font-weight: 700; }
+    .price-card .amount { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent); font-weight: 700; margin-top: auto; }
 
     /* OUR STORY & IMPACT */
     .our-story-section {
@@ -1107,470 +1160,535 @@
 
       <div class="broker-box">
         <div>
-          <h3>We're paid on results. That changes everything.</h3>
-          <p>Seat-billers profit when nothing changes. AI-only vendors profit when everything is automated regardless of accuracy. We assess each workflow and apply software where it accelerates and humans where nuance matters.</p>
+          <h3>The Kindly Hybrid Advantage</h3>
+          <p>We blend software-driven automation with human oversight in Manila. You get fast turnaround times with guaranteed high-precision accuracy.</p>
         </div>
         <ul class="broker-list">
-          <li><strong>Automate</strong> — Repetitive, rule-based, high-volume tasks</li>
-          <li><strong>Human-in-the-Loop</strong> — Nuance, evaluation, and quality assurance</li>
-          <li><strong>One Partner</strong> — Full SLA accountability and real-time dashboards</li>
+          <li><strong>Outcome-Based Pricing:</strong> Pay for completed tasks, not idle desk time.</li>
+          <li><strong>Guaranteed Precision:</strong> Multi-layer QA with gold-standard calibration.</li>
+          <li><strong>Impact Sourcing:</strong> Ethical employment model delivering higher retention.</li>
         </ul>
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- SERVICES SECTION WITH CATEGORY FILTER -->
     <section id="services">
       <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Work smarter. Grow faster.</p>
+        <h2>Our Operational Capabilities</h2>
+        <p>Select a category to explore specialized services</p>
       </div>
 
-      <div class="services">
+      <!-- Category Navigation Tabs -->
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="openCategory(event, 'all-services')">All Services</button>
+        <button class="tab-btn" onclick="openCategory(event, 'ai-data')">AI & Data Ops</button>
+        <button class="tab-btn" onclick="openCategory(event, 'fintech')">Fintech & Compliance</button>
+        <button class="tab-btn" onclick="openCategory(event, 'ecommerce')">E-Commerce Ops</button>
+      </div>
+
+      <!-- Category 1: All Services -->
+      <div id="all-services" class="tab-content services-grid active">
         <div class="card feat">
-          <div class="card-tag">Core Service</div>
-          <h3>AI Data Operations</h3>
-          <p>The human foundation behind accurate models. Specialists label, evaluate, and correct data and AI outputs with auditable accuracy.</p>
+          <div class="card-tag">Core Specialization</div>
+          <h3>AI & Data Operations</h3>
+          <p>High-precision annotation, RLHF, model evaluation, and dataset curation.</p>
           <ul>
-            <li>Data labeling &amp; annotation (Text, Image, Video)</li>
-            <li>RLHF &amp; Model Output Scoring</li>
-            <li>Red-teaming &amp; Safety Review</li>
+            <li>Bounding box, polygon & segmentation</li>
+            <li>LLM RLHF & prompt evaluation</li>
+            <li>Audio transcription & sentiment labeling</li>
           </ul>
-          <div class="card-footer">Priced <strong>per validated unit</strong> · Free 100-unit pilot</div>
+          <div class="card-footer">
+            SLA: <strong>99.2% Target Precision</strong>
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-tag">Managed Pods</div>
-          <h3>Managed Operations</h3>
-          <p>Dedicated teams running back-office operations where AI drafts the work and trained humans audit and approve outcomes.</p>
+          <div class="card-tag">Risk & Security</div>
+          <h3>KYC & Identity Verification</h3>
+          <p>Manual review of edge cases, fraud detection, and regulatory compliance.</p>
           <ul>
-            <li>Data encoding &amp; document processing</li>
-            <li>E-commerce catalog management</li>
-            <li>KYC &amp; compliance document reviews</li>
+            <li>Document verification checks</li>
+            <li>PEP & Sanctions screening</li>
+            <li>Fraud anomaly investigation</li>
           </ul>
-          <div class="card-footer">Scale <strong>5 to 100+ specialists</strong> · Live in 2–3 weeks</div>
+          <div class="card-footer">
+            Turnaround: <strong>&lt; 15 Mins SLA</strong>
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-tag">Diagnostic</div>
-          <h3>AI Operations Audit</h3>
-          <p>A fixed-fee diagnostic mapping your recurring workflows to identify where to automate vs. keep human oversight.</p>
+          <div class="card-tag">Growth Support</div>
+          <h3>E-Commerce & Back-Office</h3>
+          <p>Catalog enrichment, content moderation, customer support escalations.</p>
           <ul>
-            <li>Workflow bottleneck mapping</li>
-            <li>ROI &amp; tool recommendations</li>
-            <li>90-day execution roadmap</li>
+            <li>Product taxonomy & tagging</li>
+            <li>Multilingual content moderation</li>
+            <li>Order exception processing</li>
           </ul>
-          <div class="card-footer">Fixed fee · <strong>100% credited</strong> to future operations</div>
+          <div class="card-footer">
+            Coverage: <strong>24/7 Shift Operations</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 2: AI & Data Ops -->
+      <div id="ai-data" class="tab-content services-grid">
+        <div class="card feat">
+          <div class="card-tag">Core Specialization</div>
+          <h3>Data Annotation & Labeling</h3>
+          <p>Computer vision and NLP dataset preparation handled by trained specialists.</p>
+          <ul>
+            <li>Bounding box, polygon & 3D point cloud</li>
+            <li>Text classification & entity recognition</li>
+            <li>Multimodal alignment & video tracking</li>
+          </ul>
+          <div class="card-footer">
+            Pricing: <strong>Per-item annotated</strong>
+          </div>
         </div>
 
         <div class="card">
-          <div class="card-tag">Upskill</div>
-          <h3>AI Literacy &amp; Training</h3>
-          <p>Practical AI training for your internal workforce so your team learns to leverage AI tools productively and safely.</p>
+          <div class="card-tag">LLM Quality</div>
+          <h3>RLHF & Model Evaluation</h3>
+          <p>Human feedback loops for refining generative AI outputs and safety guardrails.</p>
           <ul>
-            <li>Customized team curriculum</li>
-            <li>In-person &amp; remote workshops</li>
-            <li>Certification included</li>
+            <li>Model response ranking & preference</li>
+            <li>Factuality & hallucination auditing</li>
+            <li>Adversarial prompt testing (Red teaming)</li>
           </ul>
-          <div class="card-footer">Custom programs available</div>
+          <div class="card-footer">
+            Pricing: <strong>Per-evaluation completed</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Fintech & Compliance -->
+      <div id="fintech" class="tab-content services-grid">
+        <div class="card">
+          <div class="card-tag">Compliance</div>
+          <h3>KYC & Onboarding Review</h3>
+          <p>Rapid manual checks for identity validation and document exception handling.</p>
+          <ul>
+            <li>ID document forgery verification</li>
+            <li>Address proof validation</li>
+            <li>Selfie-to-ID matching validation</li>
+          </ul>
+          <div class="card-footer">
+            Security: <strong>VDI / Zero-Data Local Storage</strong>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Trust & Safety</div>
+          <h3>AML & Risk Monitoring</h3>
+          <p>Transaction review and risk evaluation for suspicious activity alerts.</p>
+          <ul>
+            <li>False-positive alert filtering</li>
+            <li>Sanction list match review</li>
+            <li>Chargeback evidence compilation</li>
+          </ul>
+          <div class="card-footer">
+            Compliance: <strong>SOC2 & ISO Aligned</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 4: E-Commerce Ops -->
+      <div id="ecommerce" class="tab-content services-grid">
+        <div class="card">
+          <div class="card-tag">Catalog Management</div>
+          <h3>Product Data Enrichment</h3>
+          <p>Structuring product specifications, attributes, and image optimization.</p>
+          <ul>
+            <li>Attribute extraction & standardization</li>
+            <li>Image background cleanup QA</li>
+            <li>SEO description verification</li>
+          </ul>
+          <div class="card-footer">
+            Scale: <strong>10k+ items / day capacity</strong>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Customer Support</div>
+          <h3>Complex Tier-2 Escalations</h3>
+          <p>Empathetic human intervention for edge-case customer issues and reviews.</p>
+          <ul>
+            <li>Refund & dispute resolution</li>
+            <li>VIP customer ticket routing</li>
+            <li>User review moderation & response</li>
+          </ul>
+          <div class="card-footer">
+            Pricing: <strong>Per-ticket closed</strong>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Timeline / Execution Speed -->
-    <section class="timeline-section" id="timeline">
-      <div class="section-title" style="margin-bottom: 0;">
-        <h2>AI Acceleration, Human at Heart</h2>
-        <p>From first contact to live operations</p>
+    <!-- TIMELINE SECTION -->
+    <section id="timeline" class="timeline-section">
+      <div class="section-title">
+        <h2>Launch Timeline</h2>
+        <p>From agreement to live production in 2 to 3 weeks</p>
       </div>
+
       <div class="timeline-grid">
         <div class="timeline-item">
-          <div class="time">24h</div>
-          <p>Response within 24 hours from leadership.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="time">48h</div>
-          <p>Tailored proposal with scope, pricing, and SLAs.</p>
-        </div>
-        <div class="timeline-item">
           <div class="time">Wk 1</div>
-          <p>Free 100-unit pilot or audit execution.</p>
+          <p><strong>Calibration & Training</strong><br>SOP mapping, gold standard benchmarks, and trial batches.</p>
         </div>
         <div class="timeline-item">
-          <div class="time">Wk 2-3</div>
-          <p>Dedicated team trained, calibrated, and live.</p>
+          <div class="time">Wk 2</div>
+          <p><strong>Ramp & QA Integration</strong><br>Shadow production, multi-layer QA tuning, and SLA setup.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="time">Wk 3</div>
+          <p><strong>Full Production</strong><br>Scaled output processing with automated dashboard reporting.</p>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- PRICING SECTION WITH CATEGORY FILTER -->
     <section id="pricing">
       <div class="section-title">
-        <h2>Pay for Outcomes, Not Chairs</h2>
-        <p>Transparent, flexible model</p>
+        <h2>Transparent Pricing Models</h2>
+        <p>Pay purely for delivered outputs and validated results</p>
       </div>
 
-      <div class="pricing-grid">
+      <!-- Category Filter Tabs for Pricing -->
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="openPricingCategory(event, 'all-pricing')">All Plans</button>
+        <button class="tab-btn" onclick="openPricingCategory(event, 'per-output')">Per-Output</button>
+        <button class="tab-btn" onclick="openPricingCategory(event, 'dedicated')">Dedicated Pods</button>
+      </div>
+
+      <!-- Category 1: All Pricing -->
+      <div id="all-pricing" class="tab-content pricing-grid active">
         <div class="price-card">
-          <h3>Per Output</h3>
-          <div class="sub">Volume Work</div>
-          <p>Pay per validated record, approved review, or enriched listing. Defective units are never billed.</p>
-          <div class="amount">Usage-based rates</div>
+          <h3>Unit-Based Output</h3>
+          <div class="sub">Pay-per-Unit</div>
+          <p>Ideal for predictable task volumes with defined schemas like image labeling or KYC reviews.</p>
+          <div class="amount">Variable / Output Rate</div>
         </div>
+
         <div class="price-card">
-          <h3>Per Dedicated Seat</h3>
-          <p>Named specialists integrated into your ongoing operations for complex processes needing continuity.</p>
-          <div class="amount">Monthly pod pricing</div>
+          <h3>Dedicated Pods</h3>
+          <div class="sub">Managed Operations</div>
+          <p>Best for evolving workflows, multi-task operations, or high-touch LLM red-teaming requirements.</p>
+          <div class="amount">Fixed Pod / Monthly</div>
         </div>
+      </div>
+
+      <!-- Category 2: Per-Output -->
+      <div id="per-output" class="tab-content pricing-grid">
         <div class="price-card">
-          <h3>Per Outcome</h3>
-          <div class="sub">Resolution Work</div>
-          <p>Pay per resolved ticket or qualified output. Alignment completely aligned with your KPIs.</p>
-          <div class="amount">Scoped per project</div>
+          <h3>Pay-Per-Task SLA</h3>
+          <div class="sub">No Seat Fees</div>
+          <p>Zero cost for idle time. Defective outputs are audited and unbilled automatically.</p>
+          <div class="amount">Per Validated Output</div>
+        </div>
+      </div>
+
+      <!-- Category 3: Dedicated Pods -->
+      <div id="dedicated" class="tab-content pricing-grid">
+        <div class="price-card">
+          <h3>Managed Hybrid Team</h3>
+          <div class="sub">Full-Time Dedicated</div>
+          <p>A dedicated team of specialists and QA analysts assigned exclusively to your platform.</p>
+          <div class="amount">Custom Monthly Rate</div>
         </div>
       </div>
     </section>
 
-    <!-- Our Story Section -->
-    <section class="our-story-section" id="story">
+    <!-- STORY SECTION -->
+    <section id="story" class="our-story-section">
       <div class="section-title">
-        <h2>Our Story</h2>
-        <p>Rooted in impact. Driven by innovation.</p>
+        <h2>Built on 20+ Years of Impact</h2>
+        <p>Sustainable employment drives superior data quality</p>
       </div>
-      
+
       <div class="story-grid">
         <div class="story-card">
-          <h3>Established Legacy</h3>
-          <p>Our roots run deep in local empowerment through <strong>Hapinoy</strong> and <strong>Rags2Riches</strong>, social enterprises that have worked with thousands of micro-entrepreneurs in the Philippines over two decades.</p>
+          <h3>Fair Pay &amp; Benefits</h3>
+          <p>We pay above industry standard rates with full medical and portable benefits. Stable specialists retain contextual memory and maintain higher quality standards over time.</p>
         </div>
         <div class="story-card">
-          <h3>Bridging Human &amp; AI</h3>
-          <p>Technology shouldn't displace people; it should unleash their potential. We combine automation with skilled professionals to handle high-stakes data operations.</p>
-        </div>
-        <div class="story-card">
-          <h3>Kind to Workers</h3>
-          <p>We provide above-market pay and official government benefit coverage (SSS, PhilHealth, Pag-IBIG) for our talent. Ethical treatment results in lower turnover, higher accuracy, and reliable context retention for clients.</p>
+          <h3>Manila Tech Hub</h3>
+          <p>Operating from Manila gives us access to a digitally fluent workforce with near-native English comprehension and high AI-tool competency.</p>
         </div>
       </div>
 
       <div class="story-quote">
-        <p>"Combining deep-rooted community impact with enterprise-grade digital execution."</p>
+        "Ethical employment isn't just good ethics—it reduces attrition and directly improves data quality."
       </div>
     </section>
 
-    <!-- Founders Section -->
-    <section class="testimonials-section">
+    <!-- TEAM SECTION -->
+    <section id="team" class="testimonials-section">
       <div class="section-title">
-        <h2>Leadership Note</h2>
-        <p>From our founders</p>
+        <h2>Operational Leadership</h2>
+        <p>Led by seasoned pioneers in impact sourcing and scalable operations</p>
       </div>
+
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p>"We built Kindly to prove that artificial intelligence shouldn't replace human capability—it should elevate it. Our goal is to give every client a sustainable, human-guided AI advantage."</p>
+          <p>"We build teams that don't just process tasks—they take end-to-end ownership of your operational precision."</p>
           <div class="testimonial-author">
-            <div class="author-info">
+            <div class="author-avatar"><div class="avatar-placeholder">MR</div></div>
+            <div>
               <h4>Mark Ruiz</h4>
-              <span>Co-Founder · Co-founder of Hapinoy</span>
+              <span>Co-Founder</span>
             </div>
           </div>
         </div>
 
         <div class="testimonial-card">
-          <p>"Technology moves fast, but quality and trust remain deeply human. Combining smart automation with rigorous human oversight lets businesses scale smoothly without compromising accuracy."</p>
+          <p>"Combining human intuition with intelligent systems allows us to achieve quality benchmarks software alone cannot touch."</p>
           <div class="testimonial-author">
-            <div class="author-info">
+            <div class="author-avatar"><div class="avatar-placeholder">RF</div></div>
+            <div>
               <h4>Reese Fernandez-Ruiz</h4>
-              <span>Co-Founder · Founder of Rags2Riches</span>
+              <span>Co-Founder</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Human-in-the-Loop Network -->
-    <section id="team" style="position: relative;">
+    <!-- HUMAN IN THE LOOP NETWORK -->
+    <section class="hitl-network-wrapper">
+      <div class="hitl-core-node">
+        <div class="hitl-core-badge">
+          <span class="pulse-dot"></span> Active Operations Framework
+        </div>
+      </div>
+
+      <div class="hierarchy-layout">
+        <div class="hierarchy-level level-head">
+          <div class="hitl-card highlight-card">
+            <div class="avatar-box"><div class="avatar-placeholder">OM</div></div>
+            <div class="name">Operations Lead</div>
+            <div class="title">SLA & Protocol Management</div>
+            <div class="tools-bar">Dashboard & Escalation</div>
+          </div>
+        </div>
+
+        <div class="hierarchy-level level-leads">
+          <div class="hitl-card">
+            <div class="avatar-box"><div class="avatar-placeholder">QA</div></div>
+            <div class="name">QA Specialist</div>
+            <div class="title">1 : 15 Calibration Auditor</div>
+            <div class="tools-bar">Double-Blind Sampling</div>
+          </div>
+        </div>
+
+        <div class="hierarchy-level level-staff">
+          <div class="hitl-card">
+            <div class="avatar-box"><div class="avatar-placeholder">DS</div></div>
+            <div class="name">Data Specialist</div>
+            <div class="title">Annotation & Review</div>
+            <div class="tools-bar">Direct Execution</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE QUIZ -->
+    <section id="quiz" class="quiz-section">
+      <div class="quiz-progress">
+        <div id="quiz-bar" class="quiz-progress-bar"></div>
+      </div>
+
+      <div id="step-1" class="quiz-step active">
+        <h3>1. What is your primary operational bottleneck?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option-btn" onclick="nextQuizStep(2)">AI Training Data &amp; Annotation</button>
+          <button class="quiz-option-btn" onclick="nextQuizStep(2)">KYC &amp; Identity Review Backlog</button>
+          <button class="quiz-option-btn" onclick="nextQuizStep(2)">E-Commerce Content &amp; Moderation</button>
+        </div>
+      </div>
+
+      <div id="step-2" class="quiz-step">
+        <h3>2. What volume are you looking to process monthly?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option-btn" onclick="nextQuizStep(3)">&lt; 10,000 units / month</button>
+          <button class="quiz-option-btn" onclick="nextQuizStep(3)">10,000 – 100,000 units / month</button>
+          <button class="quiz-option-btn" onclick="nextQuizStep(3)">100,000+ units / month</button>
+        </div>
+      </div>
+
+      <div id="step-3" class="quiz-step">
+        <h3>3. Where should we send your custom Audit Report?</h3>
+        <div class="quiz-gate">
+          <form class="quiz-form" onsubmit="event.preventDefault(); alert('Audit report request received! We will be in touch within 24 hours.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Work Email" required>
+            <button type="submit" class="btn" style="grid-column: span 2;">Get Free Operational Audit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES SECTION -->
+    <section id="industries" class="industries-section">
       <div class="section-title">
-        <h2>Human-in-the-Loop Network</h2>
-        <p>Real human oversight guaranteeing every workflow</p>
-      </div>
-
-      <div class="hitl-network-wrapper">
-        <div class="hitl-core-node">
-          <div class="hitl-core-badge">
-            <span class="pulse-dot"></span> AI Engines + Multi-Layer Human Verification
-          </div>
-        </div>
-
-        <div class="hierarchy-layout">
-          <!-- Level 1 -->
-          <div class="hierarchy-level level-head">
-            <div class="hitl-card highlight-card">
-              <div class="avatar-box"><div class="avatar-placeholder">M</div></div>
-              <div class="name">Macar</div>
-              <div class="title">Head of Operations</div>
-              <div class="tools-bar">Ops Strategy • SLA Delivery</div>
-            </div>
-          </div>
-
-          <!-- Level 2 -->
-          <div class="hierarchy-level level-manager">
-            <div class="hitl-card highlight-card">
-              <div class="avatar-box"><div class="avatar-placeholder">J</div></div>
-              <div class="name">Jeh</div>
-              <div class="title">Operations Manager</div>
-              <div class="tools-bar">Quality Reports • Oversight</div>
-            </div>
-          </div>
-
-          <!-- Level 3 -->
-          <div class="hierarchy-level level-leads">
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">M</div></div>
-              <div class="name">Mico</div>
-              <div class="title">Data Operations Lead</div>
-              <div class="tools-bar">Workflows • Integrity</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">F</div></div>
-              <div class="name">Fred</div>
-              <div class="title">Systems Development</div>
-              <div class="tools-bar">Integrations • Bots</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">A</div></div>
-              <div class="name">Allan</div>
-              <div class="title">Database & Admin</div>
-              <div class="tools-bar">SQL • Pipelines</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">R</div></div>
-              <div class="name">Riza</div>
-              <div class="title">Team Leader</div>
-              <div class="tools-bar">QA • AI Review</div>
-            </div>
-          </div>
-
-          <!-- Level 4 -->
-          <div class="hierarchy-level level-staff">
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">A</div></div>
-              <div class="name">Aira</div>
-              <div class="title">Data Auditor</div>
-              <div class="tools-bar">Audits • Quality</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">T</div></div>
-              <div class="name">Tin</div>
-              <div class="title">Systems Associate</div>
-              <div class="tools-bar">AI Agents • Workflows</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">G</div></div>
-              <div class="name">Grace</div>
-              <div class="title">Onboarding Specialist</div>
-              <div class="tools-bar">Ops • Onboarding</div>
-            </div>
-            <div class="hitl-card">
-              <div class="avatar-box"><div class="avatar-placeholder">C</div></div>
-              <div class="name">Chris</div>
-              <div class="title">Data Admin</div>
-              <div class="tools-bar">Encoding • Support</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Quiz -->
-    <section class="quiz-section" id="quiz">
-      <div class="quiz-container">
-        <div class="quiz-progress">
-          <div class="quiz-progress-bar" id="quiz-progress"></div>
-        </div>
-
-        <div class="quiz-step active" data-step="1">
-          <h3>1. Where is your biggest operational bottleneck?</h3>
-          <div class="quiz-options">
-            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Data entry &amp; document processing</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Customer support &amp; ticket triage</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(1)">Internal workflow backlogs</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(1)">AI training data &amp; QA review</button>
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="2">
-          <h3>2. What primary tools do you rely on?</h3>
-          <div class="quiz-options">
-            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Spreadsheets &amp; Docs</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(2)">CRMs / Helpdesks (HubSpot, Zendesk)</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Custom internal DBs</button>
-            <button class="quiz-option-btn" onclick="nextQuizStep(2)">Emails &amp; PDFs</button>
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="3">
-          <h3>3. Where should we send your custom recommendation?</h3>
-          <div class="quiz-gate">
-            <p>You'll receive a summary of candidate workflows for automation and estimated savings.</p>
-            <form onsubmit="finishQuiz(event)">
-              <div class="quiz-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Work Email" required>
-              </div>
-              <button type="submit" class="btn" style="width: 100%;">Get Recommendation</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="4">
-          <div style="text-align: center;">
-            <h3 style="color: var(--cyan-neon);">Audit Request Received!</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We are analyzing your inputs and will email you a tailored breakdown shortly.</p>
-            <a href="#book" class="btn btn-sm">Book a Call Immediately</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Industry Badges -->
-    <section class="industries-section" id="industries">
-      <div class="section-title" style="margin-bottom: 1rem;">
         <h2>Industries We Serve</h2>
-        <p>Specialized data operations</p>
+        <p>Specialized workflows designed for vertical alignment</p>
       </div>
       <div class="industry-badges">
-        <a href="#book" class="badge">AI &amp; Machine Learning</a>
-        <a href="#book" class="badge">E-commerce &amp; Logistics</a>
-        <a href="#book" class="badge">Fintech &amp; KYC Verification</a>
-        <a href="#book" class="badge">Healthcare Operations</a>
-        <a href="#book" class="badge">Market Research</a>
+        <a href="#book" class="badge">Generative AI Labs</a>
+        <a href="#book" class="badge">Computer Vision Startups</a>
+        <a href="#book" class="badge">Fintech &amp; Digital Banks</a>
+        <a href="#book" class="badge">Global E-Commerce Platforms</a>
+        <a href="#book" class="badge">Trust &amp; Safety Platforms</a>
       </div>
     </section>
 
-    <!-- FAQ Accordion -->
+    <!-- FAQ SECTION -->
     <section class="faq-section">
       <div class="section-title">
         <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know</p>
+        <p>Everything you need to know about getting started</p>
       </div>
 
-      <details open>
+      <details>
         <summary>How do you guarantee quality with a distributed workforce?</summary>
-        <p>Every unit passes multi-layer QA: gold-standard calibration tasks, double-blind sampling, and dedicated QA analysts. Accuracy rates appear on a weekly dashboard, and defective units are never billed under per-output pricing.</p>
+        <p>Every unit passes multi-layer QA: gold-standard calibration tasks, double-blind sampling, and dedicated QA analysts at roughly one per fifteen specialists. Accuracy rates appear on a weekly dashboard and SLAs carry credits. With per-output pricing, defective units are never billed.</p>
       </details>
 
       <details>
         <summary>How do you handle data security and privacy?</summary>
-        <p>Client data is accessed through controlled environments with role-based access and NDA-bound specialists. For sensitive engagements, we support virtual desktop infrastructure (VDI) and execute custom Data Processing Agreements (DPAs).</p>
+        <p>Client data is accessed through controlled environments with role-based access and NDA-bound specialists. For sensitive engagements we use virtual desktop setups where data never leaves your infrastructure. We work under your data processing agreement (DPA) and build toward ISO 27001 standards.</p>
       </details>
 
       <details>
         <summary>What about time zones?</summary>
-        <p>Output-based work is asynchronous: you send volume, we return QA'd results against a turnaround SLA. For real-time coverage, we run dedicated shifts matching US, European, and APAC hours.</p>
+        <p>Output-based work is asynchronous: you send volume, we return QA'd results against a turnaround SLA. For real-time coverage we staff to your business hours. The Philippines overlaps naturally with Australia and Asia, and we run dedicated shifts for US and European hours.</p>
       </details>
 
       <details>
         <summary>Why the Philippines?</summary>
-        <p>The Philippines offers an experienced outsourcing workforce with exceptional English fluency, Western business culture familiarity, and high AI tool adoption rates.</p>
+        <p>The Philippines is the world's premier outsourcing hub, combining exceptional English fluency, deep Western cultural alignment, and high AI tool adoption rates.</p>
       </details>
 
       <details>
         <summary>Isn't fair pay going to make you more expensive?</summary>
-        <p>Fair pay reduces attrition and error rates, giving you a stable team that maintains context. Combined with our AI speedups, overall operating costs remain lower than traditional BPOs.</p>
+        <p>All-in rates are competitive with any high-quality Philippine provider, typically well below onshore equivalents. Fair pay reduces attrition, retraining, and error rates—giving you a stable team that retains context rather than high turnover.</p>
       </details>
     </section>
 
-    <!-- Booking Widget -->
-    <section class="booking-section" id="book">
-      <div class="section-title" style="margin-bottom: 1rem;">
+    <!-- BOOKING SECTION -->
+    <section id="book" class="booking-section">
+      <div class="section-title">
         <h2>Book a Discovery Call</h2>
-        <p>Speak directly with our leadership team</p>
+        <p>Let's discuss your operational requirements and workflow timeline</p>
       </div>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/d/cqqp-79k-2y3"></div>
-      <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-        Having trouble viewing the calendar? <a href="https://calendly.com/d/cqqp-79k-2y3" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-neon);">Open directly in a new tab</a>.
-      </p>
+      
+      <div class="calendly-inline-widget" data-url="https://calendly.com/hello-kindly/30min"></div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Kindly Operations Inc. (Part of Atin Group Inc.). All rights reserved. Manila, PH.</p>
-      <p style="margin-top: 0.5rem;">
-        <a href="#services">Services</a> · 
-        <a href="#pricing">Pricing</a> · 
-        <a href="#story">About Us</a> · 
-        <a href="mailto:hello@kindly.ph">hello@kindly.ph</a>
-      </p>
+      <p>&copy; Kindly Operations Inc. All rights reserved. Operating out of Manila, Philippines.</p>
+      <p style="margin-top: 0.5rem;"><a href="mailto:hello@kindly.ph">hello@kindly.ph</a> · <a href="https://www.linkedin.com/company/kindly-ph" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </footer>
 
-  <!-- Interactive Background Canvas Animation Script -->
+  <!-- JAVASCRIPT FOR CATEGORY TABS & QUIZ & CANVAS -->
   <script>
-    const canvas = document.getElementById('neural-canvas');
-    const ctx = canvas.getContext('2d');
+    // Services Category Switcher
+    function openCategory(evt, categoryName) {
+      const contents = document.querySelectorAll('#services .tab-content');
+      contents.forEach(content => content.classList.remove('active'));
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const buttons = document.querySelectorAll('#services .tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(categoryName).classList.add('active');
+      evt.currentTarget.classList.add('active');
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
 
-    const particles = Array.from({ length: 45 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      radius: Math.random() * 2 + 1
-    }));
+    // Pricing Category Switcher
+    function openPricingCategory(evt, categoryName) {
+      const contents = document.querySelectorAll('#pricing .tab-content');
+      contents.forEach(content => content.classList.remove('active'));
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const buttons = document.querySelectorAll('#pricing .tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(categoryName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    // Quiz Step Navigation
+    function nextQuizStep(stepNumber) {
+      const steps = document.querySelectorAll('.quiz-step');
+      steps.forEach(s => s.classList.remove('active'));
+
+      document.getElementById(`step-${stepNumber}`).classList.add('active');
       
-      particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
+      const progressBar = document.getElementById('quiz-bar');
+      if (stepNumber === 2) progressBar.style.width = '66%';
+      if (stepNumber === 3) progressBar.style.width = '100%';
+    }
 
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    // Canvas Background
+    const canvas = document.getElementById('neural-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
-        ctx.fill();
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
 
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 242, 254, ${0.15 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
+      const particles = Array.from({ length: 40 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 1.5 + 1
+      }));
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(0, 242, 254, 0.3)';
+        ctx.strokeStyle = 'rgba(0, 242, 254, 0.05)';
+
+        particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
           }
-        }
-      });
+        });
 
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    /* Interactive Quiz Navigation Logic */
-    function nextQuizStep(currentStep) {
-      document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
-      const nextStep = currentStep + 1;
-      document.querySelector(`.quiz-step[data-step="${nextStep}"]`).classList.add('active');
-      document.getElementById('quiz-progress').style.width = `${(nextStep / 3) * 100}%`;
-    }
-
-    function finishQuiz(event) {
-      event.preventDefault();
-      document.querySelector('.quiz-step[data-step="3"]').classList.remove('active');
-      document.querySelector('.quiz-step[data-step="4"]').classList.add('active');
-      document.getElementById('quiz-progress').style.width = '100%';
+        requestAnimationFrame(animate);
+      }
+      animate();
     }
   </script>
 </body>
