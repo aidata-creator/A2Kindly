@@ -3,415 +3,428 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ============ SEO & SOCIAL METADATA ============ -->
   <title>Kindly | AI Data Operations & BPO Services in the Philippines</title>
-  <meta name="description" content="Kindly runs AI data operations, annotation, model evaluation, QA, and back-office workflows from Manila. Live in 2–3 weeks. Priced per output, not per seat. Book a discovery call.">
+  <meta name="description" content="AI data operations, annotation, evaluation, QA, and back-office work run from Manila. Live in 2–3 weeks. Priced per output, not per seat.">
   <link rel="canonical" href="https://kindly.ph/">
 
-  <!-- ============ FONTS ============ -->
+  <!-- SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Kindly",
+    "url":"https://kindly.ph",
+    "email":"hello@kindly.ph",
+    "description":"AI data operations and impact-sourcing BPO based in Manila, Philippines.",
+    "address":{"@type":"PostalAddress","addressLocality":"Manila","addressCountry":"PH"},
+    "founder":[{"@type":"Person","name":"Mark Ruiz"},{"@type":"Person","name":"Reese Fernandez-Ruiz"}]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-color: #030712;
       --card-bg: rgba(15, 23, 42, 0.65);
       --card-border: rgba(0, 242, 254, 0.15);
-      --card-hover-border: rgba(0, 242, 254, 0.6);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent: #d8835e;
-      --accent-glow: rgba(216, 131, 94, 0.4);
       --cyan-neon: #00f2fe;
-      --cyan-glow: rgba(0, 242, 254, 0.35);
       --font-heading: 'Space Grotesk', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Interactive Neural Canvas */
-    #neural-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -2;
-      pointer-events: none;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(216, 131, 94, 0.18) 0%, transparent 60%),
-        radial-gradient(circle at 85% 60%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
-        linear-gradient(to right, rgba(0, 242, 254, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-      z-index: -1;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* NAVIGATION */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 90;
-      background: rgba(3, 7, 18, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--card-border);
-      padding: 1.2rem 0;
-    }
-
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text-main);
-      text-decoration: none;
-      cursor: pointer;
-    }
-
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; }
+    
+    #neural-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    header { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); }
+    .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none; }
     .logo span { color: var(--cyan-neon); }
+    nav ul { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
+    nav a:hover, nav a.active { color: var(--cyan-neon); }
 
-    .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      align-items: center;
-      list-style: none;
-    }
+    .btn { display: inline-flex; align-items: center; background: linear-gradient(135deg, var(--accent) 0%, #b8603b 100%); color: #fff; padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); }
+    .btn-ghost { background: transparent; border: 1px solid var(--card-border); color: var(--text-main); }
+    .btn-ghost:hover { border-color: var(--cyan-neon); color: var(--cyan-neon); }
 
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-family: var(--font-mono);
-      transition: color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover, .nav-links a.active { 
-      color: var(--cyan-neon); 
-      border-bottom: 2px solid var(--cyan-neon);
-      padding-bottom: 4px;
-    }
-
-    /* TAB CONTROL STYLES */
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      padding-top: 3rem;
-      padding-bottom: 5rem;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* BUTTONS */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      background: linear-gradient(135deg, var(--accent) 0%, #b8603b 100%);
-      color: #ffffff;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 0 25px var(--accent-glow);
-      cursor: pointer;
-    }
-
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(216, 131, 94, 0.7); }
-    .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 3rem 0;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: 3.2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.65) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero h1 span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+    .hero { text-align: center; padding: 5rem 0 4rem; max-width: 900px; margin: 0 auto; }
+    .eyebrow-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 242, 254, 0.05); color: var(--cyan-neon); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.8rem; font-family: var(--font-mono); border: 1px solid var(--card-border); margin-bottom: 1.5rem; }
+    .hero h1 { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1.15; margin-bottom: 1.5rem; }
     .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; }
 
-    /* CARDS & PANELS */
-    .section-title { text-align: center; margin-bottom: 3rem; }
-    .section-title h2 { font-family: var(--font-heading); font-size: 2.2rem; color: var(--cyan-neon); }
+    .cred-bar { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center; margin-bottom: 4rem; }
+    .cred-item h4 { font-family: var(--font-heading); color: var(--cyan-neon); font-size: 1.4rem; }
+    .cred-item p { font-size: 0.85rem; color: var(--text-muted); }
 
-    .grid-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; align-items: center; }
 
-    .card {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid var(--card-border);
-    }
-
-    .card h3 { font-family: var(--font-heading); color: var(--cyan-neon); margin-bottom: 0.5rem; }
-    .card p { color: var(--text-muted); font-size: 0.95rem; }
-
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--card-border);
-      font-family: var(--font-mono);
-    }
+    footer { border-top: 1px solid var(--card-border); padding: 3rem 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono); margin-top: 4rem; }
   </style>
 </head>
 <body>
-
   <canvas id="neural-canvas"></canvas>
 
-  <!-- NAVIGATION HEADER -->
-  <header>
-    <div class="container nav-wrap">
-      <a class="logo" onclick="switchCategory('hero')">kindly<span>.</span></a>
-      <ul class="nav-links">
-        <li><a onclick="switchCategory('services')" class="nav-btn" id="nav-services">Services</a></li>
-        <li><a onclick="switchCategory('industries')" class="nav-btn" id="nav-industries">Industries</a></li>
-        <li><a onclick="switchCategory('pricing')" class="nav-btn" id="nav-pricing">Pricing</a></li>
-        <li><a onclick="switchCategory('timeline')" class="nav-btn" id="nav-timeline">How it works</a></li>
-        <li><a onclick="switchCategory('story')" class="nav-btn" id="nav-story">About</a></li>
-        <li><a onclick="switchCategory('team')" class="nav-btn" id="nav-team">Team</a></li>
-      </ul>
-      <a onclick="switchCategory('book')" class="btn btn-sm">Book a Call</a>
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">kindly<span>.</span></a>
+      <nav>
+        <ul>
+          <li><a href="ai-data-operations.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="our-people.html">Our People & Impact</a></li>
+          <li><a href="story-leadership.html">Story</a></li>
+          <li><a href="#book" class="btn">Book a Call</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow-tag">
+        ● MANILA, PH · SERVING CLIENTS WORLDWIDE
+      </div>
+      <h1>AI Data Operations, run by trained people who own the outcome.</h1>
+      <p>We handle annotation, evaluation, QA, and back-office operations for AI and enterprise teams — live in 2–3 weeks, priced per output. Not per seat.</p>
+      
+      <div class="cta-group">
+        <a href="#book" class="btn">Book a 20-Min Call</a>
+        <a href="pricing.html#quiz" class="btn btn-ghost">Take 30-Sec Audit</a>
+      </div>
+    </section>
+
+    <div class="cred-bar">
+      <div class="cred-item">
+        <h4>Hapinoy Roots</h4>
+        <p>20+ yrs building human & digital ops in SE Asia</p>
+      </div>
+      <div class="cred-item">
+        <h4>Per-Output Pricing</h4>
+        <p>Zero seat-billing overhead or wasted hours</p>
+      </div>
+      <div class="cred-item">
+        <h4>2-3 Weeks</h4>
+        <p>Average deployment time to live delivery</p>
+      </div>
+      <div class="cred-item">
+        <h4>Fair Pay Guarantee</h4>
+        <p>Portable benefits & above-market baseline pay</p>
+      </div>
     </div>
-  </header>
 
-  <main class="container">
-
-    <!-- HOME / HERO TAB -->
-    <section id="category-hero" class="tab-content active">
-      <div class="hero">
-        <h1>AI data operations, run by people who <span>own the outcome</span>.</h1>
-        <p>Annotation, evaluation, QA, and back-office operations for AI, e-commerce, and fintech teams. Delivered from Manila. <strong>Live in 2–3 weeks.</strong></p>
-        <div style="display:flex; gap:1rem; justify-content:center;">
-          <button onclick="switchCategory('services')" class="btn">Explore Services</button>
-          <button onclick="switchCategory('pricing')" class="btn" style="background:transparent; border:1px solid var(--cyan-neon);">View Pricing</button>
-        </div>
-      </div>
+    <!-- Booking Section -->
+    <section id="book" style="text-align: center; margin: 4rem 0;">
+      <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.5rem;">Ready to optimize your operations?</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">Engagements typically start with a free 100-unit pilot or a fixed-fee audit.</p>
+      
+      <!-- Calendly widget -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/jeh-hapinoy/1?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=030712&text_color=f8fafc&primary_color=00f2fe" style="min-width:320px;height:700px;border-radius:12px;border:1px solid var(--card-border);"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </section>
 
-    <!-- SERVICES CATEGORY -->
-    <section id="category-services" class="tab-content">
-      <div class="section-title">
-        <h2>Data Operations & BPO Services</h2>
-        <p>Human-in-the-loop intelligence designed for AI accuracy.</p>
-      </div>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>AI Data Annotation</h3>
-          <p>Precision bounding box, polygon, RLHF text ranking, and video annotation handled by domain specialists in Manila.</p>
-        </div>
-        <div class="card">
-          <h3>Model Evaluation & QA</h3>
-          <p>Continuous accuracy validation, gold-standard calibration testing, and red-teaming for LLMs and generative tools.</p>
-        </div>
-        <div class="card">
-          <h3>Back-Office Operations</h3>
-          <p>Complex catalog management, KYC/AML document verification, and specialized workflow resolution.</p>
-        </div>
-      </div>
-    </section>
+    <footer>
+      <p>Kindly PH Inc. | Atindata Group · Manila, Philippines</p>
+      <p><a href="mailto:hello@kindly.ph" style="color: var(--cyan-neon);">hello@kindly.ph</a> · ISO 27001 Alignment in Progress · NDA on Request</p>
+    </footer>
+  </div>
 
-    <!-- INDUSTRIES CATEGORY -->
-    <section id="category-industries" class="tab-content">
-      <div class="section-title">
-        <h2>Industries We Serve</h2>
-        <p>Tailored operations for high-scale verticals.</p>
-      </div>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>E-Commerce & Retail</h3>
-          <p>Product categorization, SKU enrichment, and automated catalog audit routines.</p>
-        </div>
-        <div class="card">
-          <h3>Fintech & Banking</h3>
-          <p>Document verification, fraud pattern labeling, and human-verified identity matching.</p>
-        </div>
-        <div class="card">
-          <h3>Generative AI & LLMs</h3>
-          <p>Prompt-response evaluation, safety filtering, and fine-tuning datasets across complex domains.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING CATEGORY -->
-    <section id="category-pricing" class="tab-content">
-      <div class="section-title">
-        <h2>Transparent Pricing Model</h2>
-        <p>Priced per output — never per seat.</p>
-      </div>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>Output-Based Billing</h3>
-          <p>Only pay for successfully QA'd, accurate records. Defective units are zero-rated.</p>
-        </div>
-        <div class="card">
-          <h3>Dedicated Pods</h3>
-          <p>Scalable dedicated operations teams managed by Manila-based QA leads with customizable SLA turnarounds.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS (TIMELINE) CATEGORY -->
-    <section id="category-timeline" class="tab-content">
-      <div class="section-title">
-        <h2>How It Works</h2>
-        <p>Go live in 2 to 3 weeks with clear milestones.</p>
-      </div>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>Week 1: Discovery & Rules</h3>
-          <p>Define edge-cases, setup gold-standard datasets, and train initial team leaders.</p>
-        </div>
-        <div class="card">
-          <h3>Week 2: Pilot Sprint</h3>
-          <p>Run trial batches, measure accuracy dashboards, and adjust operational guidelines.</p>
-        </div>
-        <div class="card">
-          <h3>Week 3: Full Scale Operations</h3>
-          <p>Ramp output volume with active multi-layer QA sampling and continuous delivery.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT CATEGORY -->
-    <section id="category-story" class="tab-content">
-      <div class="section-title">
-        <h2>About Kindly</h2>
-        <p>Impact-sourcing BPO driven by human-centric operations.</p>
-      </div>
-      <div class="card">
-        <h3>Our Mission</h3>
-        <p>Founded by social enterprise pioneers in Southeast Asia, Kindly combines fair wages, portable employee benefits, and AI tools to deliver superior data quality for worldwide teams.</p>
-      </div>
-    </section>
-
-    <!-- TEAM CATEGORY -->
-    <section id="category-team" class="tab-content">
-      <div class="section-title">
-        <h2>Leadership & Team</h2>
-        <p>20+ years building operational excellence in the Philippines.</p>
-      </div>
-      <div class="grid-layout">
-        <div class="card">
-          <h3>Mark Ruiz</h3>
-          <p>Co-Founder · Pioneer in Southeast Asian Social Enterprise & Operations</p>
-        </div>
-        <div class="card">
-          <h3>Reese Fernandez-Ruiz</h3>
-          <p>Co-Founder · Award-Winning Impact Leader & Operations Builder</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOK A CALL CATEGORY -->
-    <section id="category-book" class="tab-content">
-      <div class="section-title">
-        <h2>Book a Discovery Call</h2>
-        <p>Talk directly with our operational leaders in Manila.</p>
-      </div>
-      <div style="text-align:center; padding: 2rem;">
-        <p style="margin-bottom: 1.5rem; color: var(--text-muted);">Ready to scale your AI data operations?</p>
-        <a href="mailto:hello@kindly.ph" class="btn">Contact via Email (hello@kindly.ph)</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 Kindly Operations Inc. All Rights Reserved. Manila, Philippines.</p>
-  </footer>
-
-  <!-- CATEGORY SWITCHING SCRIPT -->
   <script>
-    function switchCategory(categoryId) {
-      // Hide all category tab sections
-      const sections = document.querySelectorAll('.tab-content');
-      sections.forEach(section => {
-        section.classList.remove('active');
+    /* Neural Canvas Animation */
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    const nodes = Array.from({length: 40}, () => ({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5
+    }));
+    function draw() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      nodes.forEach(n => {
+        n.x += n.vx; n.y += n.vy;
+        if(n.x<0||n.x>canvas.width) n.vx*=-1; if(n.y<0||n.y>canvas.height) n.vy*=-1;
+        ctx.beginPath(); ctx.arc(n.x, n.y, 1.5, 0, Math.PI*2); ctx.fillStyle='rgba(0, 242, 254, 0.4)'; ctx.fill();
       });
-
-      // Remove active class from all nav buttons
-      const navButtons = document.querySelectorAll('.nav-btn');
-      navButtons.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      // Show selected category tab
-      const selectedSection = document.getElementById('category-' + categoryId);
-      if (selectedSection) {
-        selectedSection.classList.add('active');
-      }
-
-      // Highlight active nav item
-      const activeNav = document.getElementById('nav-' + categoryId);
-      if (activeNav) {
-        activeNav.classList.add('active');
-      }
-
-      // Scroll smoothly to top of main area
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      requestAnimationFrame(draw);
     }
+    draw();
   </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | AI Data Operations & Managed Pods — Kindly</title>
+  <link rel="stylesheet" href="style.css"> <!-- Shared stylesheet -->
+  <style>
+    :root {
+      --bg-color: #030712; --card-bg: rgba(15, 23, 42, 0.65); --card-border: rgba(0, 242, 254, 0.15);
+      --text-main: #f8fafc; --text-muted: #94a3b8; --cyan-neon: #00f2fe; --accent: #d8835e;
+      --font-heading: 'Space Grotesk', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .service-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 2.5rem; border-radius: 12px; }
+    .service-card h3 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--cyan-neon); margin-bottom: 1rem; }
+    .service-card ul { list-style: none; margin-top: 1.5rem; }
+    .service-card li { font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+    .service-card li::before { content: "→ "; color: var(--accent); }
+    .badge { display: inline-block; background: rgba(216,131,94,0.15); color: var(--accent); font-family: var(--font-mono); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex; justify-style:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:1.5rem;">
+      <a href="index.html" style="font-family:var(--font-heading); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none;">kindly<span style="color:var(--cyan-neon)">.</span></a>
+      <nav style="display:flex; gap:1.5rem; list-style:none;">
+        <a href="ai-data-operations.html" style="color:var(--cyan-neon); text-decoration:none;">Services</a>
+        <a href="pricing.html" style="color:var(--text-muted); text-decoration:none;">Pricing</a>
+        <a href="our-people.html" style="color:var(--text-muted); text-decoration:none;">Our People</a>
+        <a href="story-leadership.html" style="color:var(--text-muted); text-decoration:none;">Story</a>
+      </nav>
+    </header>
 
+    <section style="margin-top: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: 2.8rem;">Our Productized Services</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 700px;">We avoid generic hourly billing. We provide structured, output-based operational pods and AI calibration services.</p>
+
+      <div class="service-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <span class="badge">FLAGSHIP</span>
+          <h3>AI Data Operations</h3>
+          <p>Trained human specialists who evaluate, annotate, and calibrate models to eliminate hallucination and edge-case errors[cite: 1].</p>
+          <ul>
+            <li>RLHF & Preference Data Collection</li>
+            <li>Taglish/Regional Language Localization</li>
+            <li>Red-Teaming & Safety Review</li>
+            <li>Search & Recommendation Quality QA</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <span class="badge">MANAGED PODS</span>
+          <h3>AI Agent QA & Supervision</h3>
+          <p>Real-time auditing of agentic production workflows. We monitor autonomous agents and handle escalations[cite: 1].</p>
+          <ul>
+            <li>Fintech & KYC Document Review</li>
+            <li>Catalog & E-Commerce Operations</li>
+            <li>Automated Claims Auditing</li>
+            <li>Human-in-the-Loop Escalation</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <span class="badge">PAID WEDGE</span>
+          <h3>AI Operations Audit</h3>
+          <p>Fixed-fee 2-3 week engagement. We map your current workflows and provide an automation vs. human-review roadmap.</p>
+          <ul>
+            <li>Workflow Mapping & ROI Analysis</li>
+            <li>Tool Stack Audit</li>
+            <li>100% Credited on Delivery Contracts</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Audit | Kindly</title>
+  <style>
+    :root {
+      --bg-color: #030712; --card-bg: rgba(15, 23, 42, 0.65); --card-border: rgba(0, 242, 254, 0.15);
+      --text-main: #f8fafc; --text-muted: #94a3b8; --cyan-neon: #00f2fe; --accent: #d8835e;
+      --font-heading: 'Space Grotesk', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .price-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 2rem; border-radius: 12px; }
+    .price-card .amount { font-family: var(--font-heading); font-size: 2.2rem; color: var(--cyan-neon); margin: 1rem 0; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:1.5rem;">
+      <a href="index.html" style="font-family:var(--font-heading); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none;">kindly<span style="color:var(--cyan-neon)">.</span></a>
+      <nav style="display:flex; gap:1.5rem; list-style:none;">
+        <a href="ai-data-operations.html" style="color:var(--text-muted); text-decoration:none;">Services</a>
+        <a href="pricing.html" style="color:var(--cyan-neon); text-decoration:none;">Pricing</a>
+        <a href="our-people.html" style="color:var(--text-muted); text-decoration:none;">Our People</a>
+        <a href="story-leadership.html" style="color:var(--text-muted); text-decoration:none;">Story</a>
+      </nav>
+    </header>
+
+    <section style="margin-top: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: 2.8rem;">Transparent Pricing</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem;">No hidden enterprise minimums. We bill for verified outputs, not seated hours.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Per-Output Operations</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">For structured annotation, document QA, or data pipelines.</p>
+          <div class="amount">Per Unit</div>
+          <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent);">Starts at US$2,500/mo min.</p>
+          <ul style="margin: 1.5rem 0; font-size: 0.9rem; color: var(--text-muted);">
+            <li>✓ Free 100-Unit Proof Pilot</li>
+            <li>✓ Zero payment for defective QA units</li>
+            <li>✓ Weekly SLA & accuracy dashboard</li>
+          </ul>
+          <a href="index.html#book" class="btn">Start Free Pilot</a>
+        </div>
+
+        <div class="price-card" style="border-color: var(--cyan-neon);">
+          <h3>AI Operations Audit</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Fixed diagnostic to map bottlenecks and estimate savings.</p>
+          <div class="amount">US$4,900</div>
+          <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-neon);">Fixed fee · 2–3 Weeks</p>
+          <ul style="margin: 1.5rem 0; font-size: 0.9rem; color: var(--text-muted);">
+            <li>✓ Full operational roadmap</li>
+            <li>✓ 100% credited on contract sign-on</li>
+            <li>✓ Delivered directly by founders</li>
+          </ul>
+          <a href="index.html#book" class="btn" style="background: var(--cyan-neon); color: #000;">Book Audit</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our People & Impact | Kindly</title>
+  <style>
+    :root {
+      --bg-color: #030712; --card-bg: rgba(15, 23, 42, 0.65); --card-border: rgba(0, 242, 254, 0.15);
+      --text-main: #f8fafc; --text-muted: #94a3b8; --cyan-neon: #00f2fe; --accent: #d8835e;
+      --font-heading: 'Space Grotesk', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .team-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 1.5rem; border-radius: 12px; text-align: center; }
+    .team-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); margin-bottom: 0.5rem; }
+    .team-card h4 { font-family: var(--font-heading); color: #fff; }
+    .team-card p { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan-neon); }
+    .guarantee { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; border-top: 1px dashed var(--card-border); padding-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex; justify-style:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:1.5rem;">
+      <a href="index.html" style="font-family:var(--font-heading); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none;">kindly<span style="color:var(--cyan-neon)">.</span></a>
+      <nav style="display:flex; gap:1.5rem; list-style:none;">
+        <a href="ai-data-operations.html" style="color:var(--text-muted); text-decoration:none;">Services</a>
+        <a href="pricing.html" style="color:var(--text-muted); text-decoration:none;">Pricing</a>
+        <a href="our-people.html" style="color:var(--cyan-neon); text-decoration:none;">Our People</a>
+        <a href="story-leadership.html" style="color:var(--text-muted); text-decoration:none;">Story</a>
+      </nav>
+    </header>
+
+    <section style="margin-top: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: 2.8rem;">Meet Your Account Operations Pod</h1>
+      <p style="color: var(--text-muted); max-width: 700px;">The real human team behind our human-in-the-loop workflows. Every specialist receives above-market per-output pay and portable government benefits (SSS, PhilHealth, Pag-IBIG)[cite: 1, 2].</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="macar.jpg" alt="Macar">
+          <h4>Macar</h4>
+          <p>Head of Operations</p>
+          <div class="guarantee">Guarantees delivery against SLAs</div>
+        </div>
+        <div class="team-card">
+          <img src="jeh.jpg" alt="Jeh">
+          <h4>Jeh</h4>
+          <p>Operations Manager</p>
+          <div class="guarantee">Owns quality reporting[cite: 2]</div>
+        </div>
+        <div class="team-card">
+          <img src="mico.jpg" alt="Mico">
+          <h4>Mico</h4>
+          <p>Data Ops Lead</p>
+          <div class="guarantee">Designs pipeline schema[cite: 2]</div>
+        </div>
+        <div class="team-card">
+          <img src="riza.jpg" alt="Riza">
+          <h4>Riza</h4>
+          <p>Team Lead QA</p>
+          <div class="guarantee">Audits double-blind batches[cite: 2]</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story & Leadership | Kindly</title>
+  <style>
+    :root {
+      --bg-color: #030712; --card-bg: rgba(15, 23, 42, 0.65); --card-border: rgba(0, 242, 254, 0.15);
+      --text-main: #f8fafc; --text-muted: #94a3b8; --cyan-neon: #00f2fe; --accent: #d8835e;
+      --font-heading: 'Space Grotesk', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .story-block { background: var(--card-bg); border: 1px solid var(--card-border); padding: 2.5rem; border-radius: 12px; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header style="display:flex; justify-style:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:1.5rem;">
+      <a href="index.html" style="font-family:var(--font-heading); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none;">kindly<span style="color:var(--cyan-neon)">.</span></a>
+      <nav style="display:flex; gap:1.5rem; list-style:none;">
+        <a href="ai-data-operations.html" style="color:var(--text-muted); text-decoration:none;">Services</a>
+        <a href="pricing.html" style="color:var(--text-muted); text-decoration:none;">Pricing</a>
+        <a href="our-people.html" style="color:var(--text-muted); text-decoration:none;">Our People</a>
+        <a href="story-leadership.html" style="color:var(--cyan-neon); text-decoration:none;">Story</a>
+      </nav>
+    </header>
+
+    <section style="margin-top: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: 2.8rem;">Our Operating History</h1>
+      
+      <div class="story-block">
+        <h3 style="color: var(--cyan-neon); font-family: var(--font-heading);">Where We Built This</h3>
+        <p style="color: var(--text-muted); margin-top: 1rem;">Founded by the team behind <strong>Hapinoy</strong> and <strong>Rags2Riches</strong>, social enterprises that have empowered thousands of Filipino micro-entrepreneurs[cite: 1, 2]. We bring 20+ years of operational discipline in high-volume, quality-critical data environments to international AI & enterprise teams[cite: 1, 2].</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <div class="story-block">
+          <p style="font-style: italic;">"We built Kindly to prove artificial intelligence shouldn't replace human capability — it should elevate it."[cite: 1, 2]</p>
+          <h4 style="margin-top: 1rem; color: var(--accent);">Mark Ruiz</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Co-Founder · Hapinoy</span>[cite: 1, 2]
+        </div>
+        <div class="story-block">
+          <p style="font-style: italic;">"Combining AI acceleration with rigorous human oversight lets teams scale without compromising quality."[cite: 1, 2]</p>
+          <h4 style="margin-top: 1rem; color: var(--accent);">Reese Fernandez-Ruiz</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Co-Founder · Rags2Riches</span>[cite: 1, 2]
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
