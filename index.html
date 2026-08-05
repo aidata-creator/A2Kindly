@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Scale your data operations without adding internal management overhead. Managed Manila teams for RLHF, annotation, and QA.">
   <meta name="twitter:image" content="https://kindly.ph/og-image.png">
 
-  <!-- Combined Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,27 +69,31 @@
   }
   </script>
 
-  <!-- Typography -->
+  <!-- Typography: Figtree -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-warm: #F9F8F6;
+      /* Brand Color Palette from Image */
+      --color-primary-dark: #085041;  /* Dark Emerald/Forest Green */
+      --color-primary-green: #1D9E75; /* Vibrant Emerald Green */
+      --color-accent-amber: #EF9F27;  /* Warm Gold/Amber */
+      --color-charcoal: #2C2C2A;      /* Off-Black / Charcoal Text */
+
+      /* Surface & UI Colors */
       --bg-surface: #FFFFFF;
-      --bg-subtle: #F1EFEA;
-      --text-main: #111827;
-      --text-muted: #4B5563;
-      --border-color: #E5E7EB;
-      --accent-terracotta: #D95338;
-      --accent-hover: #B83E26;
-      --badge-check: #15803D;
-      --badge-bg: #DCFCE7;
+      --bg-warm: #F3F4F3;             /* High-contrast neutral tint derived from brand palette */
+      --bg-subtle: #E8ECE9;
+      --border-color: #D1D8D4;
+      
+      --text-main: #2C2C2A;
+      --text-muted: #58605C;
+      --badge-bg: #E3F4ED;
       --radius: 8px;
       
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-serif: 'Fraunces', Georgia, serif;
+      --font-main: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -97,7 +101,7 @@
     body {
       background-color: var(--bg-surface);
       color: var(--text-main);
-      font-family: var(--font-body);
+      font-family: var(--font-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -118,54 +122,71 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 72px;
+      height: 76px;
     }
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
+    
+    /* Logo Brand Representation */
+    .brand-logo-container {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .brand-logo-svg {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .brand-tagline {
+      font-size: 0.72rem;
       font-weight: 600;
       color: var(--text-main);
-      text-decoration: none;
-      letter-spacing: -0.02em;
+      margin-top: -2px;
+      letter-spacing: -0.01em;
     }
-    .logo span { color: var(--accent-terracotta); }
+
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a:hover { color: var(--color-primary-dark); }
 
-    /* Editorial Buttons */
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--accent-terracotta);
+      background: var(--color-primary-dark);
       color: #FFFFFF;
       padding: 0.75rem 1.5rem;
       border-radius: var(--radius);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
-      transition: background-color 0.2s;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 2px solid var(--color-primary-dark);
+      transition: all 0.2s ease;
     }
-    .btn:hover { background: var(--accent-hover); }
+    .btn:hover { 
+      background: var(--color-primary-green);
+      border-color: var(--color-primary-green);
+    }
     .btn-secondary {
       background: var(--bg-surface);
       color: var(--text-main);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
     }
-    .btn-secondary:hover { background: var(--bg-subtle); }
+    .btn-secondary:hover { 
+      background: var(--bg-warm);
+      border-color: var(--color-primary-dark);
+    }
 
-    /* Section Structure & Scroll Offset Fix */
+    /* Section Alternating Structure & Scroll Margin Offset */
     section {
       padding: 90px 0;
-      scroll-margin-top: 90px; /* Offset for sticky navigation header */
+      scroll-margin-top: 90px;
     }
     section.bg-warm {
       background-color: var(--bg-warm);
@@ -178,57 +199,63 @@
 
     .section-header { margin-bottom: 2.5rem; max-width: 680px; }
     .section-header h2 {
-      font-family: var(--font-serif);
-      font-size: 2.25rem;
-      font-weight: 400;
+      font-size: 2.35rem;
+      font-weight: 800;
       line-height: 1.2;
+      color: var(--color-primary-dark);
       margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
     }
-    .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; font-weight: 500; }
 
     /* Hero Section */
     .hero {
-      padding-top: 60px;
+      padding-top: 40px;
       padding-bottom: 30px;
-      max-width: 840px;
+      max-width: 860px;
     }
     .hero-origin-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--bg-subtle);
+      background: var(--bg-warm);
       border: 1px solid var(--border-color);
-      padding: 0.4rem 0.9rem;
+      padding: 0.45rem 1rem;
       border-radius: 20px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
       margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-family: var(--font-serif);
-      font-size: 3.25rem;
-      line-height: 1.15;
-      font-weight: 400;
-      letter-spacing: -0.02em;
+      font-size: 3.5rem;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
+      color: var(--text-main);
     }
-    .hero h1 em { font-style: italic; color: var(--accent-terracotta); }
+    .hero h1 em { 
+      font-style: normal; 
+      color: var(--color-primary-green);
+    }
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
       line-height: 1.5;
+      font-weight: 500;
     }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
-    /* Real Work Artifact */
+    /* Artifact Preview Card */
     .artifact-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: var(--radius);
       padding: 1.5rem;
       margin-top: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 16px rgba(8, 80, 65, 0.05);
     }
     .artifact-header {
       display: flex;
@@ -237,7 +264,7 @@
       padding-bottom: 0.75rem;
       margin-bottom: 1rem;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
     }
     .artifact-view {
@@ -251,16 +278,16 @@
       padding: 1rem;
       border-radius: 6px;
       font-family: monospace;
-      font-size: 0.8rem;
+      font-size: 0.825rem;
       white-space: pre-wrap;
       overflow-x: auto;
+      color: var(--text-main);
     }
     .artifact-box-title {
-      font-family: var(--font-body);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.75rem;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--color-primary-dark);
       margin-bottom: 0.5rem;
       display: block;
     }
@@ -268,7 +295,7 @@
     /* Trust & Accessibility Compliance Badges */
     .trust-bar {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       padding: 1.5rem 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -276,53 +303,56 @@
       flex-wrap: wrap;
       align-items: center;
     }
-    .trust-item { font-size: 0.875rem; color: var(--text-muted); }
-    .trust-item strong { color: var(--text-main); font-weight: 600; }
+    .trust-item { font-size: 0.9rem; color: var(--text-muted); }
+    .trust-item strong { color: var(--text-main); font-weight: 700; }
 
     .compliance-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       background-color: var(--badge-bg);
-      border: 1px solid rgba(21, 128, 61, 0.2);
-      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(29, 158, 117, 0.3);
+      padding: 0.35rem 0.85rem;
       border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #064E3B; /* High-contrast dark green text */
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
     }
     .compliance-badge .check-icon {
-      color: var(--badge-check);
-      font-weight: 800;
+      color: var(--color-primary-green);
+      font-weight: 900;
     }
 
     /* Service Cards */
     .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .service-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 2.25rem;
     }
     .service-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
       margin-bottom: 0.75rem;
     }
-    .service-card p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .service-card p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 1rem; }
     .bullet-list { list-style: none; }
     .bullet-list li {
       position: relative;
       padding-left: 1.25rem;
       margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--text-main);
     }
     .bullet-list li::before {
       content: "—";
       position: absolute;
       left: 0;
-      color: var(--accent-terracotta);
+      color: var(--color-primary-green);
+      font-weight: 800;
     }
 
     /* Metrics Grid */
@@ -331,34 +361,33 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: var(--radius);
       padding: 2rem;
     }
     .metric-box h4 {
-      font-family: var(--font-serif);
-      font-size: 2.25rem;
-      color: var(--accent-terracotta);
-      font-weight: 400;
+      font-size: 2.5rem;
+      color: var(--color-accent-amber);
+      font-weight: 900;
       margin-bottom: 0.25rem;
     }
-    .metric-box p { font-size: 0.875rem; color: var(--text-muted); }
+    .metric-box p { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
 
     /* Transparent Pricing */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .pricing-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 2.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .pricing-price {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      color: var(--accent-terracotta);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
       margin-top: 1.5rem;
     }
 
@@ -366,24 +395,24 @@
     .founder-note-section {
       background: var(--bg-surface);
       border-radius: var(--radius);
-      padding: 3rem 2.5rem;
-      border: 1px solid var(--border-color);
+      padding: 3.5rem 2.5rem;
+      border: 2px solid var(--border-color);
     }
     .founder-note-body p {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       color: var(--text-main);
       margin-bottom: 1.25rem;
       line-height: 1.65;
     }
     .founder-signatures {
       display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border-color);
     }
-    .founder-sig h4 { font-size: 0.95rem; font-weight: 600; }
-    .founder-sig span { font-size: 0.85rem; color: var(--text-muted); }
+    .founder-sig h4 { font-size: 1rem; font-weight: 800; color: var(--color-primary-dark); }
+    .founder-sig span { font-size: 0.88rem; color: var(--text-muted); font-weight: 500; }
 
     /* Team Grid */
     .team-grid {
@@ -395,11 +424,11 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      padding: 1.5rem;
     }
-    .team-card h4 { font-size: 1rem; font-weight: 600; }
-    .team-card .role { font-size: 0.8rem; color: var(--accent-terracotta); margin-bottom: 0.5rem; font-weight: 500; }
-    .team-card .desc { font-size: 0.825rem; color: var(--text-muted); line-height: 1.4; }
+    .team-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
+    .team-card .role { font-size: 0.85rem; color: var(--color-primary-green); margin-bottom: 0.5rem; font-weight: 700; }
+    .team-card .desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.45; }
 
     /* Work Showcase Accordion */
     .showcase-item {
@@ -415,13 +444,14 @@
       padding: 1.25rem 1.5rem;
       background: none;
       border: none;
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--text-main);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-family: var(--font-main);
     }
     .showcase-content {
       padding: 0 1.5rem 1.25rem;
@@ -433,25 +463,25 @@
     /* Audit Quiz */
     .quiz-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: var(--radius);
       padding: 2.5rem;
     }
 
     footer {
       border-top: 1px solid var(--border-color);
-      padding: 3rem 0;
+      padding: 3.5rem 0;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       background-color: var(--bg-surface);
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.25rem; }
+      .hero h1 { font-size: 2.5rem; }
       .service-grid, .pricing-grid, .artifact-view, .metrics-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      section { padding: 60px 0; scroll-margin-top: 72px; }
+      section { padding: 60px 0; scroll-margin-top: 76px; }
     }
   </style>
 
@@ -462,7 +492,16 @@
 
   <header>
     <div class="container nav-wrapper">
-      <a href="#" class="logo">kindly<span>.</span></a>
+      <a href="#" class="brand-logo-container" aria-label="Kindly Home">
+        <!-- Exact Brand Vector SVG matched from provided graphic -->
+        <svg class="brand-logo-svg" viewBox="0 0 250 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Text "kindly." in charcoal #2C2C2A -->
+          <text x="0" y="50" font-family="'Figtree', sans-serif" font-weight="900" font-size="58" fill="#2C2C2A" letter-spacing="-2">kindly.</text>
+          <!-- Emerald Green Dot over 'i' (#1D9E75) -->
+          <circle cx="68" cy="12" r="9" fill="#1D9E75"/>
+        </svg>
+      </a>
+
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work Showcase</a></li>
@@ -482,7 +521,7 @@
           📍 Manila, Philippines · Founded by Social Enterprise Pioneers
         </div>
         
-        <h1>Your Human-in-the-Loop Operations Team in Manila</h1>
+        <h1>Outsource to AI-powered <em>humans.</em></h1>
         
         <p>Scale your data operations without adding internal management overhead. Dedicated pods for RLHF, data labeling, content moderation, and back-office BPO—managed directly in the Philippines.</p>
         
@@ -495,7 +534,7 @@
         <div class="artifact-card">
           <div class="artifact-header">
             <span>REAL WORK ARTIFACT: RLHF PROMPT EVALUATION & RED-TEAMING</span>
-            <span style="color: var(--accent-terracotta);">QA STATUS: VERIFIED BY MANILA POD</span>
+            <span style="color: var(--color-primary-green);">QA STATUS: VERIFIED BY MANILA POD</span>
           </div>
           <div class="artifact-view">
             <div>
@@ -508,7 +547,7 @@
             </div>
             <div>
               <span class="artifact-box-title">Kindly Evaluated Output (JSON Export)</span>
-              <div class="artifact-box" style="border-color: rgba(217,83,56,0.3);">{
+              <div class="artifact-box" style="border-color: var(--color-primary-green);">{
   "hallucination_detected": true,
   "corrected_reasoning": "Failed safe harbor threshold §240.10b5-1(c).",
   "rlhf_preference_score": 1,
@@ -533,7 +572,7 @@
     </div>
   </section>
 
-  <!-- SERVICES (Subtle Warm Background) -->
+  <!-- SERVICES (Warm Matched Tint Background) -->
   <section id="services" class="bg-warm">
     <div class="container">
       <div class="section-header">
@@ -581,8 +620,8 @@
           <span>▼</span>
         </button>
         <div class="showcase-content">
-          <p style="margin: 1rem 0 0.5rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Raw Input:</strong> User-submitted image & text metadata in dynamic community queue.</p>
-          <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Categorized against 14 policy dimensions, timestamped, with structured severity scoring delivered via API.</p>
+          <p style="margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Raw Input:</strong> User-submitted image & text metadata in dynamic community queue.</p>
+          <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Categorized against 14 policy dimensions, timestamped, with structured severity scoring delivered via API.</p>
         </div>
       </div>
 
@@ -592,14 +631,14 @@
           <span>▼</span>
         </button>
         <div class="showcase-content">
-          <p style="margin: 1rem 0 0.5rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Raw Input:</strong> Scanned identity documents with low-lighting and motion blur.</p>
-          <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Standardized JSON object with human-verified entity extraction and audit log.</p>
+          <p style="margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Raw Input:</strong> Scanned identity documents with low-lighting and motion blur.</p>
+          <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Standardized JSON object with human-verified entity extraction and audit log.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- METRICS & PRICING (Subtle Warm Background) -->
+  <!-- METRICS & PRICING (Warm Matched Tint Background) -->
   <section id="pricing" class="bg-warm">
     <div class="container">
       <div class="section-header">
@@ -607,7 +646,7 @@
         <p>Tangible performance metrics from active client accounts.</p>
       </div>
 
-      <div class="metrics-grid" style="margin-bottom: 3rem;">
+      <div class="metrics-grid" style="margin-bottom: 3.5rem;">
         <div class="metric-box">
           <h4>99.8%</h4>
           <p>Double-blind auditing catches errors before output leaves Manila.</p>
@@ -653,7 +692,7 @@
       <div class="founder-note-section">
         <div class="section-header" style="margin-bottom: 1.5rem;">
           <h2>Why We Started Kindly</h2>
-          <p style="color: var(--accent-terracotta);">A personal note from our co-founders</p>
+          <p style="color: var(--color-primary-green);">A personal note from our co-founders</p>
         </div>
 
         <div class="founder-note-body">
@@ -678,7 +717,7 @@
     </div>
   </section>
 
-  <!-- TEAM & AUDIT (Subtle Warm Background) -->
+  <!-- TEAM & AUDIT (Warm Matched Tint Background) -->
   <section id="team" class="bg-warm">
     <div class="container">
       <!-- Operational Audit Quiz -->
@@ -689,7 +728,7 @@
         </div>
 
         <div id="quizStep1">
-          <p style="font-weight: 600; margin-bottom: 1rem;">1. What is your primary operational focus right now?</p>
+          <p style="font-weight: 700; margin-bottom: 1rem;">1. What is your primary operational focus right now?</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <button class="btn btn-secondary" onclick="runAudit('AI Model Training & RLHF')">AI Model Training & RLHF</button>
             <button class="btn btn-secondary" onclick="runAudit('Recurring Back-Office / Moderation')">Recurring Back-Office / Moderation</button>
@@ -697,8 +736,8 @@
         </div>
 
         <div id="quizResult" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-          <h3 id="auditTitle" style="color: var(--accent-terracotta); font-family: var(--font-serif); font-size: 1.4rem;"></h3>
-          <p id="auditBody" style="color: var(--text-muted); margin: 0.5rem 0 1.5rem;"></p>
+          <h3 id="auditTitle" style="color: var(--color-primary-dark); font-size: 1.4rem; font-weight: 800;"></h3>
+          <p id="auditBody" style="color: var(--text-muted); margin: 0.5rem 0 1.5rem; font-size: 1rem;"></p>
           <a href="#book" class="btn">Discuss This Model on a Call</a>
         </div>
       </div>
@@ -747,7 +786,7 @@
         <p>Talk directly with our leadership team about your operational bottlenecks.</p>
       </div>
 
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1rem; min-height: 500px;">
+      <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 1rem; min-height: 500px;">
         <div class="calendly-inline-widget" data-url="https://calendly.com/jeh-hapinoy/1?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:500px;"></div>
       </div>
     </div>
@@ -755,7 +794,7 @@
 
   <footer>
     <div class="container">
-      <p><a href="mailto:hello@kindly.ph" style="color: var(--accent-terracotta); text-decoration: none;">hello@kindly.ph</a> · Manila, Philippines</p>
+      <p><a href="mailto:hello@kindly.ph" style="color: var(--color-primary-green); text-decoration: none; font-weight: 700;">hello@kindly.ph</a> · Manila, Philippines</p>
       <p style="margin-top: 0.5rem;">A business under Atindata · Atin Group &copy; 2026 Kindly. All rights reserved.</p>
     </div>
   </footer>
