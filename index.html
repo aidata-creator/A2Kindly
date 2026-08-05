@@ -449,128 +449,115 @@
     }
   </style>
   
-  /* ==========================================================================
-   CSS Variables / Theme Definitions
-   ========================================================================== */
-:root {
-  --bg-secondary: #121318;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --text-main: #ffffff;
-  --text-muted: #a1a1aa;
-  --accent: #f4552f;
-  --accent-soft: #ff8a65;
-  --accent-glow: rgba(244, 85, 47, 0.35);
-  --font-heading: system-ui, -apple-system, sans-serif;
-  --font-body: system-ui, -apple-system, sans-serif;
-}
+  <!-- Add this CSS code INSIDE your existing <style> tag in <head> -->
+  <style>
+    /* ... existing styles ... */
 
-/* ==========================================================================
-   Human-in-the-Loop Network & Team Grid
-   ========================================================================== */
-.hitl-network-wrapper {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--card-border);
-  border-radius: 24px;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  position: relative;
-}
+    /* Human-in-the-Loop Network & Team Grid */
+    .hitl-network-wrapper {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
 
-.team-grid-2layer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.25rem;
-  position: relative;
-  z-index: 2;
-}
+    .team-grid-2layer {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
 
-.hitl-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 1.75rem 1rem 1.25rem;
-  text-align: center;
-  position: relative;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .hitl-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem 1rem 1.25rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.hitl-card.highlight-card {
-  border-color: rgba(244, 85, 47, 0.6);
-  box-shadow: 0 0 25px rgba(244, 85, 47, 0.15);
-}
+    .hitl-card.highlight-card {
+      border-color: rgba(244, 85, 47, 0.6);
+      box-shadow: 0 0 25px rgba(244, 85, 47, 0.15);
+    }
 
-.hitl-card .avatar-box {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto 0.75rem;
-  position: relative;
-  border-radius: 50%;
-  padding: 3px;
-  background: linear-gradient(135deg, var(--accent), transparent);
-  box-shadow: 0 0 15px var(--accent-glow);
-}
+    .hitl-card .avatar-box {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 0.75rem;
+      position: relative;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
 
-.hitl-card img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
+    .hitl-card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
 
-.hitl-card .name {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: 1.2;
-}
+    .hitl-card .name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
 
-.hitl-card .title {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--accent-soft);
-  margin-top: 0.25rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
+    .hitl-card .title {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--accent-soft);
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
 
-.hitl-card .guarantee-text {
-  font-size: 0.825rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  border-top: 1px dashed var(--card-border);
-  padding-top: 0.75rem;
-  width: 100%;
-  margin-top: auto;
-}
+    .hitl-card .guarantee-text {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      border-top: 1px dashed var(--card-border);
+      padding-top: 0.75rem;
+      width: 100%;
+      margin-top: auto;
+    }
 
-.hitl-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(244, 85, 47, 0.25);
-}
+    .hitl-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(244, 85, 47, 0.25);
+    }
 
-@media (max-width: 900px) {
-  .team-grid-2layer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    @media (max-width: 900px) {
+      .team-grid-2layer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-@media (max-width: 500px) {
-  .team-grid-2layer {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 500px) {
+      .team-grid-2layer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
   <!-- Calendly Script -->
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
@@ -818,81 +805,89 @@
         </div>
       </div>
     </section>
-    <!-- SECTION: 10 CORE PERSONNEL -->
+   <!-- Replace your current #team section with this updated HTML structure -->
 <section id="team" style="margin-bottom: 4rem;">
   <div class="section-title">
     <h2>Our 10 Core <em>Operational Specialists</em></h2>
     <p>Manila Pod Leaders & Domain Experts Powering Client SLAs</p>
   </div>
 
-  <div class="personnel-grid">
-    <!-- Personnel 1 -->
-    <div class="personnel-card">
-      <div>
-        <div class="hitl-card highlight-card">
-            <div class="avatar-box"><img src="macar.jpg" alt="Macar"></div>
-            <div class="name">Macar</div>
-            <div class="title">Head of Operations</div>
-            <div class="guarantee-text">Owns delivery against every SLA you sign.</div>
-          </div>
-          <div class="hitl-card highlight-card">
-            <div class="avatar-box"><img src="jeh.jpg" alt="Jeh"></div>
-            <div class="name">Jeh</div>
-            <div class="title">Operations Manager</div>
-            <div class="guarantee-text">Your weekly quality report comes from her desk.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="mico.jpg" alt="Mico"></div>
-            <div class="name">Mico</div>
-            <div class="title">Data Operations Lead</div>
-            <div class="guarantee-text">Designs the workflow before a single record moves.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="fred.jpg" alt="Fred"></div>
-            <div class="name">Fred</div>
-            <div class="title">Systems Development</div>
-            <div class="guarantee-text">Builds the integrations that connect us to your stack.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="allan.jpg" alt="Allan"></div>
-            <div class="name">Allan</div>
-            <div class="title">Database & Admin</div>
-            <div class="guarantee-text">Keeps your data pipelines clean and auditable.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="riza.jpg" alt="Riza"></div>
-            <div class="name">Riza</div>
-            <div class="title">Team Leader</div>
-            <div class="guarantee-text">Every batch is reviewed before it reaches you.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="aira.jpg" alt="Aira"></div>
-            <div class="name">Aira</div>
-            <div class="title">Data Auditor</div>
-            <div class="guarantee-text">Runs the audits that catch what the first pass missed.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="tin.jpg" alt="Tin"></div>
-            <div class="name">Tin</div>
-            <div class="title">Systems & Data</div>
-            <div class="guarantee-text">Supervises the AI agents so they don't drift.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="grace.jpg" alt="Grace"></div>
-            <div class="name">Grace</div>
-            <div class="title">Onboarding</div>
-            <div class="guarantee-text">Gets your team live inside three weeks.</div>
-          </div>
-          <div class="hitl-card">
-            <div class="avatar-box"><img src="chris.jpg" alt="Chris"></div>
-            <div class="name">Chris</div>
-            <div class="title">Data Admin</div>
-            <div class="guarantee-text">Handles the encoding volume nobody else wants to.</div>
-          </div>
-        </div>
+  <div class="hitl-network-wrapper">
+    <div class="team-grid-2layer">
+      
+      <div class="hitl-card highlight-card">
+        <div class="avatar-box"><img src="macar.jpg" alt="Macar"></div>
+        <div class="name">Macar</div>
+        <div class="title">Head of Operations</div>
+        <div class="guarantee-text">Owns delivery against every SLA you sign.</div>
       </div>
-    </section>
 
+      <div class="hitl-card highlight-card">
+        <div class="avatar-box"><img src="jeh.jpg" alt="Jeh"></div>
+        <div class="name">Jeh</div>
+        <div class="title">Operations Manager</div>
+        <div class="guarantee-text">Your weekly quality report comes from her desk.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="mico.jpg" alt="Mico"></div>
+        <div class="name">Mico</div>
+        <div class="title">Data Operations Lead</div>
+        <div class="guarantee-text">Designs the workflow before a single record moves.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="fred.jpg" alt="Fred"></div>
+        <div class="name">Fred</div>
+        <div class="title">Systems Development</div>
+        <div class="guarantee-text">Builds the integrations that connect us to your stack.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="allan.jpg" alt="Allan"></div>
+        <div class="name">Allan</div>
+        <div class="title">Database & Admin</div>
+        <div class="guarantee-text">Keeps your data pipelines clean and auditable.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="riza.jpg" alt="Riza"></div>
+        <div class="name">Riza</div>
+        <div class="title">Team Leader</div>
+        <div class="guarantee-text">Every batch is reviewed before it reaches you.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="aira.jpg" alt="Aira"></div>
+        <div class="name">Aira</div>
+        <div class="title">Data Auditor</div>
+        <div class="guarantee-text">Runs the audits that catch what the first pass missed.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="tin.jpg" alt="Tin"></div>
+        <div class="name">Tin</div>
+        <div class="title">Systems & Data</div>
+        <div class="guarantee-text">Supervises the AI agents so they don't drift.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="grace.jpg" alt="Grace"></div>
+        <div class="name">Grace</div>
+        <div class="title">Onboarding</div>
+        <div class="guarantee-text">Gets your team live inside three weeks.</div>
+      </div>
+
+      <div class="hitl-card">
+        <div class="avatar-box"><img src="chris.jpg" alt="Chris"></div>
+        <div class="name">Chris</div>
+        <div class="title">Data Admin</div>
+        <div class="guarantee-text">Handles the encoding volume nobody else wants to.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- SECTION: BOOK A CALL -->
     <section id="book" style="margin-bottom: 5rem;">
       <div class="section-title">
