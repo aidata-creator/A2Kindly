@@ -76,7 +76,7 @@
 
   <style>
     :root {
-      /* Brand Color Palette from Image */
+      /* Brand Color Palette from Design Spec */
       --color-primary-dark: #085041;  /* Dark Emerald/Forest Green */
       --color-primary-green: #1D9E75; /* Vibrant Emerald Green */
       --color-accent-amber: #EF9F27;  /* Warm Gold/Amber */
@@ -84,7 +84,7 @@
 
       /* Surface & UI Colors */
       --bg-surface: #FFFFFF;
-      --bg-warm: #F3F4F3;             /* High-contrast neutral tint derived from brand palette */
+      --bg-warm: #F3F4F3;             /* Neutral warm tint matched to brand palette */
       --bg-subtle: #E8ECE9;
       --border-color: #D1D8D4;
       
@@ -125,23 +125,16 @@
       height: 76px;
     }
     
-    /* Logo Brand Representation */
+    /* Logo Link Container */
     .brand-logo-container {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       text-decoration: none;
     }
     .brand-logo-svg {
-      height: 38px;
+      height: 42px;
       width: auto;
       display: block;
-    }
-    .brand-tagline {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-top: -2px;
-      letter-spacing: -0.01em;
     }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
@@ -493,12 +486,12 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo-container" aria-label="Kindly Home">
-        <!-- Exact Brand Vector SVG matched from provided graphic -->
-        <svg class="brand-logo-svg" viewBox="0 0 250 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Text "kindly." in charcoal #2C2C2A -->
-          <text x="0" y="50" font-family="'Figtree', sans-serif" font-weight="900" font-size="58" fill="#2C2C2A" letter-spacing="-2">kindly.</text>
-          <!-- Emerald Green Dot over 'i' (#1D9E75) -->
-          <circle cx="68" cy="12" r="9" fill="#1D9E75"/>
+        <!-- Exact Brand Vector SVG: Green Dot over 'i' (#1D9E75) + Dot on end in Black (#2C2C2A) -->
+        <svg class="brand-logo-svg" viewBox="0 0 210 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Text "kindly." rendered without dot above 'i' -->
+          <text x="0" y="52" font-family="'Figtree', sans-serif" font-weight="900" font-size="58" fill="#2C2C2A" letter-spacing="-2">kın&shy;dly.</text>
+          <!-- Emerald Green Circle placed directly over the stem of 'i' -->
+          <circle cx="50" cy="13" r="8" fill="#1D9E75"/>
         </svg>
       </a>
 
