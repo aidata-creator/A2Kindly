@@ -69,7 +69,7 @@
   }
   </script>
 
-  <!-- Typography: Figtree -->
+  <!-- Typography: Figtree (Used directly for brand logo typography & UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -122,19 +122,49 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
+      height: 90px;
     }
     
-    /* Logo Link Container */
-    .brand-logo-container {
+    /* Logo Component built natively with Figtree */
+    .brand-logo {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       text-decoration: none;
+      color: #000000;
+      user-select: none;
     }
-    .brand-logo-svg {
-      height: 48px;
-      width: auto;
-      display: block;
+    .brand-logo-text {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+      color: #000000;
+      display: flex;
+      align-items: baseline;
+    }
+    .brand-logo-i {
+      position: relative;
+      display: inline-block;
+    }
+    .brand-logo-dot {
+      position: absolute;
+      top: 0.1em;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.3em;
+      height: 0.3em;
+      background-color: var(--color-primary-green);
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .brand-logo-tagline {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #000000;
+      margin-top: 0.25rem;
+      letter-spacing: -0.01em;
     }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
@@ -485,39 +515,12 @@
 
   <header>
     <div class="container nav-wrapper">
-      <a href="#" class="brand-logo-container" aria-label="Kindly Home">
-        <!-- Exact Pixel-Match Vector SVG based on the brand spec image -->
-        <svg class="brand-logo-svg" viewBox="0 0 310 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Green dot (#1D9E75) positioned over the 'i' stem -->
-          <circle cx="51.5" cy="20.5" r="10" fill="#1D9E75"/>
-
-          <!-- "kindly" Letterforms using exact paths -->
-          <g fill="#000000">
-            <!-- k -->
-            <path d="M20 23.5 H30.5 V42 L42 28.5 H55 L39.5 45 L56 69 H42.5 L30.5 50.5 V69 H20 Z"/>
-            
-            <!-- i (dotless stem) -->
-            <path d="M57.5 28.5 H68 V69 H57.5 Z"/>
-
-            <!-- n -->
-            <path d="M72.5 28.5 H83 V34.2 C85.8 30.2 90.5 28 96.5 28 C105 28 110 33.2 110 42.5 V69 H99.5 V44 C99.5 38.5 96.8 35.8 92 35.8 C86.5 35.8 83 39.5 83 46.5 V69 H72.5 Z"/>
-
-            <!-- d -->
-            <path d="M128 23.5 H138.5 V34.2 C141.2 30.2 145.8 28 152 28 C162.5 28 170.5 36.2 170.5 48.8 C170.5 61.5 162.5 69.8 152 69.8 C145.8 69.8 141.2 67.5 138.5 63.5 V69 H128 Z M138.5 48.8 C138.5 55.8 142.8 60 149 60 C155.2 60 159.5 55.8 159.5 48.8 C159.5 41.8 155.2 37.5 149 37.5 C142.8 37.5 138.5 41.8 138.5 48.8 Z"/>
-
-            <!-- l -->
-            <path d="M175 23.5 H185.5 V69 H175 Z"/>
-
-            <!-- y (descender curving down) -->
-            <path d="M189 28.5 H200 L206.5 50.5 L213 28.5 H224 L212 63.5 C207.2 73.2 201 77.5 191.5 77.5 H187 V68.5 H190.5 C195.5 68.5 198.8 66 201.5 60 L203.2 56 Z"/>
-
-            <!-- Period (.) -->
-            <circle cx="234" cy="63.5" r="5.5"/>
-          </g>
-
-          <!-- Tagline: "Outsource to AI-powered humans" -->
-          <text x="20" y="102" font-family="'Figtree', sans-serif" font-weight="700" font-size="14.5" fill="#000000" letter-spacing="-0.2">Outsource to AI-powered humans</text>
-        </svg>
+      <!-- 1:1 Pixel-Accurate Logo using Figtree Font with custom green dot -->
+      <a href="#" class="brand-logo" aria-label="Kindly Home">
+        <div class="brand-logo-text">
+          k<span class="brand-logo-i"><span class="brand-logo-dot"></span>i</span>ndly.
+        </div>
+        <div class="brand-logo-tagline">Outsource to AI-powered humans</div>
       </a>
 
       <ul class="nav-links">
