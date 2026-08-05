@@ -610,6 +610,69 @@
       color: #ffffff;
     }
 
+    /* HOW WE WORK GRID STYLES */
+    .how-we-work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .hww-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hww-card:hover {
+      border-color: var(--accent-soft);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(244, 85, 47, 0.15);
+    }
+
+    .hww-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .hww-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .hww-card ul {
+      list-style: none;
+    }
+
+    .hww-card ul li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .hww-card ul li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .hww-card ul li strong {
+      color: var(--text-main);
+    }
+
     /* Human-in-the-Loop Network & Team Grid */
     .hitl-network-wrapper {
       max-width: 1140px;
@@ -927,6 +990,9 @@
       .pricing-grid {
         grid-template-columns: 1fr;
       }
+      .how-we-work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -935,6 +1001,7 @@
       .shift-title { font-size: 2.2rem; }
       .shift-dilemma-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
+      .how-we-work-grid { grid-template-columns: 1fr; }
       .team-grid-2layer {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1201,7 +1268,7 @@
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 3.5rem 2rem;
-      margin-bottom: 6rem;
+      margin-bottom: 4rem;
       text-align: center;
     }
 
@@ -1624,6 +1691,67 @@
 
     <!-- SECTION 3: HOW WE WORK -->
     <section id="how-we-work" style="position: relative;">
+      <div class="section-title">
+        <h2>How We Work: <em>Precision & Transparency.</em></h2>
+        <p>OUR OPERATING FRAMEWORK, GUIDELINES, AND PROVEN QA PROTOCOLS</p>
+      </div>
+
+      <!-- Structured Grid Layout for How We Work -->
+      <div class="how-we-work-grid">
+        <div class="hww-card">
+          <div class="hww-icon">⚙️</div>
+          <h3>Operating Model</h3>
+          <ul>
+            <li><strong>Collaborative & Agile:</strong> Built on transparent communication, iterative delivery, and constant alignment with strategic goals.</li>
+            <li><strong>Flexible Scaling:</strong> Rapidly adjust capacity up or down based on campaign and dataset volume demands.</li>
+          </ul>
+        </div>
+
+        <div class="hww-card">
+          <div class="hww-icon">🔄</div>
+          <h3>Core Processes</h3>
+          <ul>
+            <li><strong>Discovery & Roadmap:</strong> We map precise requirements, scope workflows, and set clear milestones prior to execution.</li>
+            <li><strong>Execution & Sprints:</strong> Tasks are delivered in structured cycles to maintain deployment speed and flexibility.</li>
+          </ul>
+        </div>
+
+        <div class="hww-card">
+          <div class="hww-icon">📋</div>
+          <h3>Guidelines & Governance</h3>
+          <ul>
+            <li><strong>Industry Best Practices:</strong> Strict adherence to compliance standards, clear design/coding SOPs, and documented workflows.</li>
+            <li><strong>Structured Oversight:</strong> Regular status checks, transparent role definitions, and feedback loops.</li>
+          </ul>
+        </div>
+
+        <div class="hww-card">
+          <div class="hww-icon">🛡️</div>
+          <h3>Quality Assurance (QA)</h3>
+          <ul>
+            <li><strong>Multi-Layered Testing:</strong> Gold-standard calibration tasks, double-blind sampling, and dedicated auditor spot checks.</li>
+            <li><strong>Zero-Defect Goal:</strong> Rigorous validation protocols where you only pay for passed, high-accuracy units.</li>
+          </ul>
+        </div>
+
+        <div class="hww-card">
+          <div class="hww-icon">🎯</div>
+          <h3>Operational Concepts</h3>
+          <ul>
+            <li><strong>End-to-End Ownership:</strong> Complete lifecycle management from initial onboarding to ongoing SLA maintenance.</li>
+            <li><strong>Scalable Infrastructure:</strong> Systems engineered to scale smoothly alongside expansion without performance loss.</li>
+          </ul>
+        </div>
+
+        <div class="hww-card">
+          <div class="hww-icon">📊</div>
+          <h3>Behind-the-Scenes Proof</h3>
+          <ul>
+            <li><strong>Proven Track Record:</strong> High project completion rates and client retention across fast-growing industries.</li>
+            <li><strong>Data-Driven SLAs:</strong> Real-time performance dashboards, turnaround SLAs, and transparent metrics driving every decision.</li>
+          </ul>
+        </div>
+      </div>
       
       <!-- Speed / Timeline Section -->
       <div class="timeline-section" id="timeline-section">
