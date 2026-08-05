@@ -76,7 +76,7 @@
 
   <style>
     :root {
-      /* Brand Color Palette from Design Spec */
+      /* Brand Color Palette */
       --color-primary-dark: #085041;  /* Dark Emerald/Forest Green */
       --color-primary-green: #1D9E75; /* Vibrant Emerald Green */
       --color-accent-amber: #EF9F27;  /* Warm Gold/Amber */
@@ -132,7 +132,7 @@
       text-decoration: none;
     }
     .brand-logo-svg {
-      height: 42px;
+      height: 38px;
       width: auto;
       display: block;
     }
@@ -486,12 +486,26 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo-container" aria-label="Kindly Home">
-        <!-- Exact Brand Vector SVG: Green Dot over 'i' (#1D9E75) + Dot on end in Black (#2C2C2A) -->
-        <svg class="brand-logo-svg" viewBox="0 0 210 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Text "kindly." rendered without dot above 'i' -->
-          <text x="0" y="52" font-family="'Figtree', sans-serif" font-weight="900" font-size="58" fill="#2C2C2A" letter-spacing="-2">kın&shy;dly.</text>
-          <!-- Emerald Green Circle placed directly over the stem of 'i' -->
-          <circle cx="50" cy="13" r="8" fill="#1D9E75"/>
+        <!-- Bulletproof Vector Logotype SVG: Emerald Green Dot (#1D9E75) Positioned Centered Over 'i' -->
+        <svg class="brand-logo-svg" viewBox="0 0 185 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#2C2C2A">
+            <!-- 'k' -->
+            <path d="M 8 10 h 8 v 36 H 8 Z M 28 22 L 16 33 L 28 46 h -10 L 12 36 v -7 l 10 -10 Z"/>
+            <!-- 'i' stem (dotless) -->
+            <path d="M 35 22 h 9 v 24 h -9 Z"/>
+            <!-- 'n' -->
+            <path d="M 51 22 h 8 v 4 h 0.5 C 61 23.5 64 21.5 69 21.5 C 76 21.5 79 25.5 79 32 v 14 h -8.5 V 33 c 0 -3.5 -1.5 -5.5 -4.5 -5.5 c -3.2 0 -5 2.2 -5 5.8 v 12.7 H 51 Z"/>
+            <!-- 'd' -->
+            <path d="M 107 10 h 8.5 v 36 H 107 v -4 h -0.5 C 104.5 44.5 101.5 46.5 96.5 46.5 C 88.5 46.5 83 40.5 83 34 C 83 27.5 88.5 21.5 96.5 21.5 C 101.5 21.5 104.5 23.5 106.5 26 H 107 Z M 98 28.5 c -4 0 -6.5 3 -6.5 5.5 c 0 2.8 2.5 5.8 6.5 5.8 c 4 0 6.5 -3 6.5 -5.8 c 0 -2.5 -2.5 -5.5 -6.5 -5.5 Z"/>
+            <!-- 'l' -->
+            <path d="M 122 10 h 8.5 v 36 H 122 Z"/>
+            <!-- 'y' -->
+            <path d="M 137 22 h 9 L 151 34.5 L 156 22 h 9 L 155.5 45 C 153 51 148 54 141 54 h -4 v -7 h 3 c 3.5 0 5.5 -1.5 6.5 -4.5 L 137 22 Z"/>
+            <!-- '.' at the end -->
+            <circle cx="176" cy="42.5" r="4" fill="#2C2C2A"/>
+          </g>
+          <!-- Emerald Green Dot centered directly over 'i' stem (x=39.5, y=13) -->
+          <circle cx="39.5" cy="13" r="4.5" fill="#1D9E75"/>
         </svg>
       </a>
 
