@@ -69,7 +69,7 @@
   }
   </script>
 
-  <!-- Typography: Modern Swiss/Editorial Inter + Fraunces Accent -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -84,6 +84,8 @@
       --border-color: #E5E7EB;
       --accent-terracotta: #D95338;
       --accent-hover: #B83E26;
+      --badge-check: #15803D;
+      --badge-bg: #DCFCE7;
       --radius: 8px;
       
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -93,7 +95,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-warm);
+      background-color: var(--bg-surface);
       color: var(--text-main);
       font-family: var(--font-body);
       line-height: 1.6;
@@ -102,9 +104,11 @@
 
     .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
 
-    /* Clean Editorial Header */
+    /* Sticky Nav Header */
     header {
-      background: var(--bg-warm);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
@@ -158,9 +162,34 @@
     }
     .btn-secondary:hover { background: var(--bg-subtle); }
 
+    /* Section Structure & Scroll Offset Fix */
+    section {
+      padding: 90px 0;
+      scroll-margin-top: 90px; /* Offset for sticky navigation header */
+    }
+    section.bg-warm {
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    section.bg-surface {
+      background-color: var(--bg-surface);
+    }
+
+    .section-header { margin-bottom: 2.5rem; max-width: 680px; }
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+
     /* Hero Section */
     .hero {
-      padding: 5rem 0 3rem;
+      padding-top: 60px;
+      padding-bottom: 30px;
       max-width: 840px;
     }
     .hero-origin-badge {
@@ -192,7 +221,7 @@
     }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
-    /* Real Work Artifact / Interactive Showcase */
+    /* Real Work Artifact */
     .artifact-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
@@ -236,32 +265,38 @@
       display: block;
     }
 
-    /* Trust & Specs Bar */
+    /* Trust & Accessibility Compliance Badges */
     .trust-bar {
       display: flex;
       gap: 2rem;
       padding: 1.5rem 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
-      margin: 3rem 0 5rem;
+      margin-top: 3rem;
       flex-wrap: wrap;
+      align-items: center;
     }
     .trust-item { font-size: 0.875rem; color: var(--text-muted); }
     .trust-item strong { color: var(--text-main); font-weight: 600; }
 
-    /* Layout Sections */
-    section { padding: 4rem 0; }
-    .section-header { margin-bottom: 2.5rem; max-width: 680px; }
-    .section-header h2 {
-      font-family: var(--font-serif);
-      font-size: 2.25rem;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
+    .compliance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: var(--badge-bg);
+      border: 1px solid rgba(21, 128, 61, 0.2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #064E3B; /* High-contrast dark green text */
     }
-    .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+    .compliance-badge .check-icon {
+      color: var(--badge-check);
+      font-weight: 800;
+    }
 
-    /* Service & Feature Lists */
+    /* Service Cards */
     .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .service-card {
       background: var(--bg-surface);
@@ -290,7 +325,7 @@
       color: var(--accent-terracotta);
     }
 
-    /* Operational Metrics Grid */
+    /* Metrics Grid */
     .metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -327,13 +362,12 @@
       margin-top: 1.5rem;
     }
 
-    /* Founder Note / Story */
+    /* Founder Note */
     .founder-note-section {
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       border-radius: var(--radius);
       padding: 3rem 2.5rem;
       border: 1px solid var(--border-color);
-      margin: 4rem 0;
     }
     .founder-note-body p {
       font-size: 1.05rem;
@@ -396,7 +430,7 @@
     }
     .showcase-item.active .showcase-content { display: block; }
 
-    /* Quiz */
+    /* Audit Quiz */
     .quiz-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
@@ -410,12 +444,14 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 0.875rem;
+      background-color: var(--bg-surface);
     }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.25rem; }
       .service-grid, .pricing-grid, .artifact-view, .metrics-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      section { padding: 60px 0; scroll-margin-top: 72px; }
     }
   </style>
 
@@ -438,60 +474,68 @@
     </div>
   </header>
 
-  <div class="container">
-    
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-origin-badge">
-        📍 Manila, Philippines · Founded by Social Enterprise Pioneers
-      </div>
-      
-      <h1>Your Human-in-the-Loop Operations Team in Manila</h1>
-      
-      <p>Scale your data operations without adding internal management overhead. Dedicated pods for RLHF, data labeling, content moderation, and back-office BPO—managed directly in the Philippines.</p>
-      
-      <div class="hero-actions">
-        <a href="#book" class="btn">Book a 20-Minute Call</a>
-        <a href="#work" class="btn btn-secondary">See Sample Work Outputs</a>
-      </div>
-
-      <!-- Real Work Artifact Preview -->
-      <div class="artifact-card">
-        <div class="artifact-header">
-          <span>REAL WORK ARTIFACT: RLHF PROMPT EVALUATION & RED-TEAMING</span>
-          <span style="color: var(--accent-terracotta);">QA STATUS: VERIFIED BY MANILA POD</span>
+  <!-- HERO (White Background) -->
+  <section class="bg-surface" style="padding-top: 40px; padding-bottom: 60px;">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-origin-badge">
+          📍 Manila, Philippines · Founded by Social Enterprise Pioneers
         </div>
-        <div class="artifact-view">
-          <div>
-            <span class="artifact-box-title">Raw Model Input & Candidate Response</span>
-            <div class="artifact-box">{
+        
+        <h1>Your Human-in-the-Loop Operations Team in Manila</h1>
+        
+        <p>Scale your data operations without adding internal management overhead. Dedicated pods for RLHF, data labeling, content moderation, and back-office BPO—managed directly in the Philippines.</p>
+        
+        <div class="hero-actions">
+          <a href="#book" class="btn">Book a 20-Minute Call</a>
+          <a href="#work" class="btn btn-secondary">See Sample Work Outputs</a>
+        </div>
+
+        <!-- Real Work Artifact Preview -->
+        <div class="artifact-card">
+          <div class="artifact-header">
+            <span>REAL WORK ARTIFACT: RLHF PROMPT EVALUATION & RED-TEAMING</span>
+            <span style="color: var(--accent-terracotta);">QA STATUS: VERIFIED BY MANILA POD</span>
+          </div>
+          <div class="artifact-view">
+            <div>
+              <span class="artifact-box-title">Raw Model Input & Candidate Response</span>
+              <div class="artifact-box">{
   "prompt": "Evaluate financial compliance under SEC Rule 10b-5...",
   "model_output": "The transaction qualifies for safe harbor without reporting...",
   "flag": null
 }</div>
-          </div>
-          <div>
-            <span class="artifact-box-title">Kindly Evaluated Output (JSON Export)</span>
-            <div class="artifact-box" style="border-color: rgba(217,83,56,0.3);">{
+            </div>
+            <div>
+              <span class="artifact-box-title">Kindly Evaluated Output (JSON Export)</span>
+              <div class="artifact-box" style="border-color: rgba(217,83,56,0.3);">{
   "hallucination_detected": true,
   "corrected_reasoning": "Failed safe harbor threshold §240.10b5-1(c).",
   "rlhf_preference_score": 1,
   "audited_by": "Pod_Alpha_Manila"
 }</div>
+            </div>
           </div>
         </div>
+
+        <!-- High-Contrast Compliance Badges & Technical Specs -->
+        <div class="trust-bar">
+          <div class="compliance-badge">
+            <span class="check-icon">✓</span> ISO 27001 Certified Ready
+          </div>
+          <div class="compliance-badge">
+            <span class="check-icon">✓</span> SOC 2 Type II Compliant
+          </div>
+          <div class="trust-item"><strong>Formats:</strong> JSON, XML, Bounding Boxes, Audio & Custom APIs</div>
+          <div class="trust-item"><strong>Stack:</strong> Labelbox, Scale AI, Databricks, Salesforce</div>
+        </div>
       </div>
-    </section>
-
-    <!-- Trust & Technical Specs Bar -->
-    <div class="trust-bar">
-      <div class="trust-item"><strong>ISO 27001 Ready</strong> & SOC 2 Type II Compliant</div>
-      <div class="trust-item"><strong>Formats:</strong> JSON, XML, Bounding Boxes, Audio & Custom APIs</div>
-      <div class="trust-item"><strong>Stack Integrations:</strong> Labelbox, Scale AI, Databricks, Salesforce</div>
     </div>
+  </section>
 
-    <!-- What We Handle -->
-    <section id="services">
+  <!-- SERVICES (Subtle Warm Background) -->
+  <section id="services" class="bg-warm">
+    <div class="container">
       <div class="section-header">
         <h2>What We Handle for Your Team</h2>
         <p>Dedicated managed operations pods tailored to your exact data standards and tools.</p>
@@ -520,33 +564,12 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Real SLAs -->
-    <section>
-      <div class="section-header">
-        <h2>Real SLAs From Our Last 12 Months</h2>
-        <p>Tangible performance metrics from active client pods.</p>
-      </div>
-
-      <div class="metrics-grid">
-        <div class="metric-box">
-          <h4>99.8%</h4>
-          <p>Double-blind auditing catches errors before output leaves Manila.</p>
-        </div>
-        <div class="metric-box">
-          <h4>2–3 Wks</h4>
-          <p>Average deployment time from kickoff to fully operational pod.</p>
-        </div>
-        <div class="metric-box">
-          <h4>10M+</h4>
-          <p>Touchpoints annually across retail, Web3, and enterprise workflows.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work Showcase Accordion -->
-    <section id="work">
+  <!-- WORK SHOWCASE (White Background) -->
+  <section id="work" class="bg-surface">
+    <div class="container">
       <div class="section-header">
         <h2>Work Showcase: Raw Input vs. Labeled Output</h2>
         <p>Click below to inspect actual work artifacts produced by our Manila teams.</p>
@@ -573,10 +596,32 @@
           <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Standardized JSON object with human-verified entity extraction and audit log.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Transparent Pricing -->
-    <section id="pricing">
+  <!-- METRICS & PRICING (Subtle Warm Background) -->
+  <section id="pricing" class="bg-warm">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real SLAs From Our Operational Pods</h2>
+        <p>Tangible performance metrics from active client accounts.</p>
+      </div>
+
+      <div class="metrics-grid" style="margin-bottom: 3rem;">
+        <div class="metric-box">
+          <h4>99.8%</h4>
+          <p>Double-blind auditing catches errors before output leaves Manila.</p>
+        </div>
+        <div class="metric-box">
+          <h4>2–3 Wks</h4>
+          <p>Average deployment time from kickoff to fully operational pod.</p>
+        </div>
+        <div class="metric-box">
+          <h4>10M+</h4>
+          <p>Touchpoints annually across retail, Web3, and enterprise workflows.</p>
+        </div>
+      </div>
+
       <div class="section-header">
         <h2>No Minimum Seat Lock-Ins</h2>
         <p>Pay only when a task passes QA, or deploy dedicated full-time pods.</p>
@@ -599,10 +644,12 @@
           <div class="pricing-price">From $1,800 / month / seat</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Founder Note / Story -->
-    <section id="story">
+  <!-- OUR STORY (White Background) -->
+  <section id="story" class="bg-surface">
+    <div class="container">
       <div class="founder-note-section">
         <div class="section-header" style="margin-bottom: 1.5rem;">
           <h2>Why We Started Kindly</h2>
@@ -628,11 +675,14 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Quick Operational Audit -->
-    <section>
-      <div class="quiz-card">
+  <!-- TEAM & AUDIT (Subtle Warm Background) -->
+  <section id="team" class="bg-warm">
+    <div class="container">
+      <!-- Operational Audit Quiz -->
+      <div class="quiz-card" style="margin-bottom: 4rem;">
         <div class="section-header" style="margin-bottom: 1.5rem;">
           <h2>Quick Operational Audit</h2>
           <p>Determine the right team structure for your current workload.</p>
@@ -652,10 +702,8 @@
           <a href="#book" class="btn">Discuss This Model on a Call</a>
         </div>
       </div>
-    </section>
 
-    <!-- Operational Specialists -->
-    <section id="team">
+      <!-- Team Grid -->
       <div class="section-header">
         <h2>Your Manila Leadership Pod</h2>
         <p>Operational leads owning daily QA and delivery against your SLAs.</p>
@@ -688,10 +736,12 @@
           <div class="desc">Enforces multi-stage auditing before batch delivery.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Calendly Call Booking -->
-    <section id="book">
+  <!-- BOOK A CALL (White Background) -->
+  <section id="book" class="bg-surface">
+    <div class="container">
       <div class="section-header">
         <h2>Book a 20-Minute Discovery Call</h2>
         <p>Talk directly with our leadership team about your operational bottlenecks.</p>
@@ -700,14 +750,15 @@
       <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1rem; min-height: 500px;">
         <div class="calendly-inline-widget" data-url="https://calendly.com/jeh-hapinoy/1?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:500px;"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
+  <footer>
+    <div class="container">
       <p><a href="mailto:hello@kindly.ph" style="color: var(--accent-terracotta); text-decoration: none;">hello@kindly.ph</a> · Manila, Philippines</p>
       <p style="margin-top: 0.5rem;">A business under Atindata · Atin Group &copy; 2026 Kindly. All rights reserved.</p>
-    </footer>
-
-  </div>
+    </div>
+  </footer>
 
   <script>
     function toggleShowcase(btn) {
