@@ -475,29 +475,6 @@
       margin-top: 1.5rem;
     }
 
-    /* Founder Note */
-    .founder-note-section {
-      background: var(--bg-surface);
-      border-radius: var(--radius);
-      padding: 3.5rem 2.5rem;
-      border: 2px solid var(--border-color);
-    }
-    .founder-note-body p {
-      font-size: 1.15rem;
-      color: var(--text-main);
-      margin-bottom: 1.25rem;
-      line-height: 1.65;
-    }
-    .founder-signatures {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-color);
-    }
-    .founder-sig h4 { font-size: 1rem; font-weight: 800; color: var(--color-primary-dark); }
-    .founder-sig span { font-size: 0.88rem; color: var(--text-muted); font-weight: 500; }
-
     /* Human in the Loop Team Grid */
     .team-grid {
       display: grid;
@@ -511,7 +488,6 @@
       padding: 1.5rem 1rem;
       text-align: center;
       display: flex;
-      flex-direction: flex-start;
       flex-direction: column;
       align-items: center;
     }
@@ -879,34 +855,62 @@
     </div>
   </section>
 
-  <!-- OUR STORY (Warm Matched Tint Background) -->
-  <section id="story" class="bg-warm">
+  <!-- OUR STORY & IMPACT SECTION -->
+  <section id="story" style="background-color: #121829; color: #FFFFFF; padding: 80px 0;">
     <div class="container">
-      <div class="founder-note-section">
-        <div class="section-header" style="margin-bottom: 1.5rem;">
-          <h2>Why We Started Kindly</h2>
-          <p style="color: var(--color-primary-green);">A personal note from our co-founders</p>
-        </div>
-
-        <div class="founder-note-body">
-          <p>For over 15 years, we’ve built businesses in the Philippines centered around one principle: frontline teams perform at their absolute best when they are given continuous training, clear operational dignity, and direct alignment with the client’s success.</p>
-
-          <p>When enterprise companies started scaling AI operations, we noticed a recurring flaw in traditional outsourcing: client teams were either stuck managing faceless, high-turnover crowd-worker platforms or locked into rigid, traditional BPO seat contracts that cared more about headcount than output quality.</p>
-
-          <p>We created Kindly to bridge that exact gap. We combine Manila's top 1% data talent with tight operational feedback loops, giving software companies a managed operational team that feels like an extension of their own internal product floor.</p>
-        </div>
-
-        <div class="founder-signatures">
-          <div class="founder-sig">
-            <h4>Mark Ruiz</h4>
-            <span>Co-Founder · Pioneer in Social Enterprise (Hapinoy)</span>
-          </div>
-          <div class="founder-sig">
-            <h4>Reese Fernandez-Ruiz</h4>
-            <span>Co-Founder · Founder of Rags2Riches</span>
-          </div>
-        </div>
+      
+      <!-- Section Header -->
+      <div style="margin-bottom: 2.5rem;">
+        <h2 style="font-size: 2.75rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; margin-bottom: 0.5rem;">
+          Our Story &amp; Impact
+        </h2>
+        <p style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #94A3B8;">
+          ROOTED IN IMPACT. DRIVEN BY INNOVATION.
+        </p>
       </div>
+
+      <!-- 3-Column Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+        
+        <!-- Card 1: Established Legacy -->
+        <div style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem;">
+          <h3 style="color: #FF5A36; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
+            Established Legacy
+          </h3>
+          <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; font-weight: 400;">
+            Our roots run deep in local empowerment through <strong style="color: #E2E8F0;">Hapinoy and Rags2Riches</strong>. We bring years of proven experience in driving community impact, economic development, and sustainable systems to the digital and AI landscape.
+          </p>
+        </div>
+
+        <!-- Card 2: Bridging Human & AI -->
+        <div style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem;">
+          <h3 style="color: #FF5A36; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
+            Bridging Human &amp; AI
+          </h3>
+          <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; font-weight: 400;">
+            We believe technology shouldn't displace people—it should unleash their potential. We combine smart automation with a skilled, dedicated workforce to handle high-stakes data workflows, AI QA, and custom implementations.
+          </p>
+        </div>
+
+        <!-- Card 3: Dignified Digital Work -->
+        <div style="background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem;">
+          <h3 style="color: #FF5A36; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
+            Dignified Digital Work
+          </h3>
+          <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; font-weight: 400;">
+            Through our hybrid model—combining core in-house specialists with scalable output-based talent—we deliver precision to businesses while providing dignified, high-value opportunities to our communities.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Quote Banner -->
+      <div style="border: 1px dashed rgba(255, 90, 54, 0.5); border-radius: 8px; padding: 1.5rem 2rem; text-align: center; background-color: rgba(255, 255, 255, 0.01);">
+        <p style="color: #E2E8F0; font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; margin: 0;">
+          "Combining deep-rooted community impact with enterprise-grade digital execution."
+        </p>
+      </div>
+
     </div>
   </section>
 
