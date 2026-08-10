@@ -387,6 +387,58 @@
       font-weight: 800;
     }
 
+    /* How We Work Moving Numbers Grid */
+    .speed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .speed-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+    }
+    .speed-card h3 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--color-accent-amber);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .speed-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* How We Work Concept Cards Grid */
+    .hww-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .hww-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .hww-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.75rem;
+    }
+    .hww-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
     /* Metrics Grid */
     .metrics-grid {
       display: grid;
@@ -462,36 +514,6 @@
     .team-card .role { font-size: 0.85rem; color: var(--color-primary-green); margin-bottom: 0.5rem; font-weight: 700; }
     .team-card .desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.45; }
 
-    /* Work Showcase Accordion */
-    .showcase-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-    .showcase-toggle {
-      width: 100%;
-      text-align: left;
-      padding: 1.25rem 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-main);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-main);
-    }
-    .showcase-content {
-      padding: 0 1.5rem 1.25rem;
-      display: none;
-      border-top: 1px solid var(--border-color);
-    }
-    .showcase-item.active .showcase-content { display: block; }
-
     /* Audit Quiz */
     .quiz-card {
       background: var(--bg-surface);
@@ -511,7 +533,7 @@
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
-      .service-grid, .pricing-grid, .artifact-view, .metrics-grid { grid-template-columns: 1fr; }
+      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       section { padding: 60px 0; scroll-margin-top: 76px; }
     }
@@ -534,7 +556,7 @@
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work Showcase</a></li>
+        <li><a href="#how-we-work">How We Work</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#team">Team</a></li>
@@ -557,7 +579,7 @@
         
         <div class="hero-actions">
           <a href="#book" class="btn">Book a 20-Minute Call</a>
-          <a href="#work" class="btn btn-secondary">See Sample Work Outputs</a>
+          <a href="#how-we-work" class="btn btn-secondary">How We Work</a>
         </div>
 
         <!-- Real Work Artifact Preview -->
@@ -731,33 +753,67 @@
     </div>
   </section>
 
-  <!-- WORK SHOWCASE (Warm Matched Tint Background) -->
-  <section id="work" class="bg-warm">
+  <!-- HOW WE WORK (Warm Matched Tint Background) -->
+  <section id="how-we-work" class="bg-warm">
     <div class="container">
       <div class="section-header">
-        <h2>Work Showcase: Raw Input vs. Labeled Output</h2>
-        <p>Click below to inspect actual work artifacts produced by our Manila teams.</p>
+        <span style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-green); display: block; margin-bottom: 0.5rem;">OUR OPERATIONAL ENGINE</span>
+        <h2>AI Acceleration, Human at Heart</h2>
+        <p>Built to be fast to act, easy to work with, and flexible behind the scenes.</p>
       </div>
 
-      <div class="showcase-item active">
-        <button class="showcase-toggle" onclick="toggleShowcase(this)">
-          1. Multi-Modal Content Moderation & Policy Tagging
-          <span>▼</span>
-        </button>
-        <div class="showcase-content">
-          <p style="margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Raw Input:</strong> User-submitted image & text metadata in dynamic community queue.</p>
-          <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Categorized against 14 policy dimensions, timestamped, with structured severity scoring delivered via API.</p>
+      <!-- Moving Speed Benchmarks -->
+      <div class="speed-grid">
+        <div class="speed-card">
+          <h3>24h</h3>
+          <p>Response within 24 hours — a real conversation, not an automated sequence.</p>
+        </div>
+        <div class="speed-card">
+          <h3>48h</h3>
+          <p>Custom proposal in 48 hours — tailored scope, pricing, and SLA.</p>
+        </div>
+        <div class="speed-card">
+          <h3>2–3wk</h3>
+          <p>Team live in 2–3 weeks — recruited, trained, QA'd, and ready to deliver.</p>
         </div>
       </div>
 
-      <div class="showcase-item">
-        <button class="showcase-toggle" onclick="toggleShowcase(this)">
-          2. Document OCR Validation & KYC Structuring
-          <span>▼</span>
-        </button>
-        <div class="showcase-content">
-          <p style="margin: 1rem 0 0.5rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Raw Input:</strong> Scanned identity documents with low-lighting and motion blur.</p>
-          <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Kindly Output:</strong> Standardized JSON object with human-verified entity extraction and audit log.</p>
+      <!-- Operational Pillars Grid -->
+      <div class="hww-grid">
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⚡</div>
+          <h3>Fast to Act & Ramp Up</h3>
+          <p>We eliminate BPO red tape. Need to deploy a pod or scale up fast? Our agile Manila pipeline allows us to onboard, train, and ramp up your team in 2 to 3 weeks.</p>
+        </div>
+
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🎯</div>
+          <h3>Multi-Layer QA Process</h3>
+          <p>Multi-tier quality assurance using gold-standard calibration datasets, real-time edge-case escalations, and double-blind audits that consistently catch 99.8% of errors.</p>
+        </div>
+
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧩</div>
+          <h3>Flexible Engagement Model</h3>
+          <p>Pivot guidelines, scale capacity, or adjust scope as your product evolves. Adaptable structures whether you need full-time dedicated pods or unit-based outputs.</p>
+        </div>
+
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🤝</div>
+          <h3>Easy to Work With</h3>
+          <p>Direct communication with dedicated Manila leads aligned to your timezone. High-touch collaboration, transparent reporting, and zero friction.</p>
+        </div>
+
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🛠️</div>
+          <h3>Native Stack Integration</h3>
+          <p>We work inside your preferred tools: Labelbox, Scale AI, Databricks, Slack, Zendesk, or custom internal APIs—no platform locking or friction.</p>
+        </div>
+
+        <div class="hww-card">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📊</div>
+          <h3>Behind the Scenes Proof Points</h3>
+          <p>Complete data lineage logs, real-time QA dashboards, and weekly SLA audits providing full operational transparency at every step.</p>
         </div>
       </div>
     </div>
@@ -925,11 +981,6 @@
   </footer>
 
   <script>
-    function toggleShowcase(btn) {
-      const item = btn.parentElement;
-      item.classList.toggle('active');
-    }
-
     function runAudit(type) {
       document.getElementById('quizStep1').style.display = 'none';
       const resultBlock = document.getElementById('quizResult');
@@ -937,7 +988,7 @@
 
       if (type.includes('AI Model')) {
         document.getElementById('auditTitle').innerText = 'Recommended Setup: Per-Output QA Pod';
-        document.getElementById('auditBody').innerText = 'Variable unit pricing starting at $0.05/record with double-blind QA auditing. Fast setup in 2 weeks.';
+        document.getElementById('auditBody').innerText = 'Variable unit pricing starting at $0.05/record with double-blind QA auditing. Fast setup in 2-3 weeks.';
       } else {
         document.getElementById('auditTitle').innerText = 'Recommended Setup: Dedicated Embedded Pod';
         document.getElementById('auditBody').innerText = 'Full-time specialists in Manila integrated into your tools (Zendesk, Slack, Salesforce) starting at $1,800/month/seat.';
