@@ -475,6 +475,54 @@
       margin-top: 1.5rem;
     }
 
+    /* Testimonials Grid */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+    }
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--color-primary-green);
+    }
+    .testimonial-info h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .testimonial-info p {
+      font-size: 0.85rem;
+      color: var(--color-primary-green);
+      font-weight: 700;
+    }
+
     /* Human in the Loop Team Grid */
     .team-grid {
       display: grid;
@@ -527,7 +575,7 @@
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
-      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid, .team-grid { grid-template-columns: 1fr; }
+      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       section { padding: 60px 0; scroll-margin-top: 76px; }
     }
@@ -553,6 +601,7 @@
         <li><a href="#how-we-work">How We Work</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#story">Our Story</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
       <a href="#book" class="btn">Book a 20-Minute Call</a>
@@ -855,7 +904,7 @@
     </div>
   </section>
 
-  <!-- OUR STORY & IMPACT SECTION (Aligned with Founders / Warm Brand Theme) -->
+  <!-- OUR STORY & IMPACT SECTION -->
   <section id="story" class="bg-warm">
     <div class="container">
       
@@ -912,8 +961,54 @@
     </div>
   </section>
 
-  <!-- TEAM & AUDIT (White Background) -->
-  <section id="team" class="bg-surface">
+  <!-- TESTIMONIALS FROM FOUNDERS & LEADERS (White Background) -->
+  <section id="testimonials" class="bg-surface">
+    <div class="container">
+      <div class="section-header" style="max-width: 800px;">
+        <span style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-green); display: block; margin-bottom: 0.5rem;">WHAT OUR FOUNDERS &amp; PARTNERS SAY</span>
+        <h2>Endorsed by <em>Pioneers</em></h2>
+        <p>Built on a decade-plus legacy of operational excellence, ethical AI deployment, and human-first impact.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Kindly proves that high-precision AI data operations and ethical, dignified employment can exist together seamlessly. The quality of execution from our Manila team is world-class."</p>
+          <div class="testimonial-author">
+            <img src="/images/mark.jpg" alt="Mark Ruiz" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Mark Ruiz</h4>
+              <p>Co-Founder, Kindly &amp; Hapinoy</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Building sustainable operations requires empathy as much as speed. Kindly bridges top-tier tech requirements with human potential, delivering consistency that global clients trust."</p>
+          <div class="testimonial-author">
+            <img src="/images/reese.jpg" alt="Reese Fernandez-Ruiz" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Reese Fernandez-Ruiz</h4>
+              <p>Co-Founder, Kindly &amp; Rags2Riches</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"We needed a team that could quickly grasp complex RLHF annotation guidelines without endless management oversight. Kindly delivered speed and multi-layer accuracy from day one."</p>
+          <div class="testimonial-author">
+            <img src="/images/client.jpg" alt="AI Operations Partner" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Enterprise Partner</h4>
+              <p>VP of Engineering, AI Tech Scale-up</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM & AUDIT (Warm Matched Tint Background) -->
+  <section id="team" class="bg-warm">
     <div class="container">
       <!-- Operational Audit Quiz -->
       <div class="quiz-card" style="margin-bottom: 4rem;">
@@ -983,14 +1078,14 @@
           <img src="/images/riza.jpg" alt="Riza" class="team-avatar">
           <h4>Riza</h4>
           <div class="role">Team Leader</div>
-          <div class="desc">Every batch is reviewed before it reaches you..</div>
+          <div class="desc">Every batch is reviewed before it reaches you.</div>
         </div>
 
         <div class="team-card">
           <img src="/images/aira.jpg" alt="Aira" class="team-avatar">
           <h4>Aira</h4>
           <div class="role">Data Auditor</div>
-          <div class="desc">Runs the audits that catch what the first pass missed..</div>
+          <div class="desc">Runs the audits that catch what the first pass missed.</div>
         </div>
 
         <div class="team-card">
@@ -1011,7 +1106,7 @@
           <img src="/images/chris.jpg" alt="Chris" class="team-avatar">
           <h4>Chris</h4>
           <div class="role">Data Admin</div>
-          <div class="desc">Handles the encoding volume nobody else wants to..</div>
+          <div class="desc">Handles the encoding volume nobody else wants to.</div>
         </div>
       </div>
     </div>
