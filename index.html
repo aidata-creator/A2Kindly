@@ -997,31 +997,6 @@
     </div>
   </section>
 
-  <!-- TEAM & AUDIT (White Background) -->
-  <section id="team" class="bg-surface">
-    <div class="container">
-      <!-- Operational Audit Quiz -->
-      <div class="quiz-card" style="margin-bottom: 4rem;">
-        <div class="section-header" style="margin-bottom: 1.5rem;">
-          <h2>Quick Operational Audit</h2>
-          <p>Determine the right team structure for your current workload.</p>
-        </div>
-
-        <div id="quizStep1">
-          <p style="font-weight: 700; margin-bottom: 1rem;">1. What is your primary operational focus right now?</p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn btn-secondary" onclick="runAudit('AI Model Training & RLHF')">AI Model Training & RLHF</button>
-            <button class="btn btn-secondary" onclick="runAudit('Recurring Back-Office / Moderation')">Recurring Back-Office / Moderation</button>
-          </div>
-        </div>
-
-        <div id="quizResult" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-          <h3 id="auditTitle" style="color: var(--color-primary-dark); font-size: 1.4rem; font-weight: 800;"></h3>
-          <p id="auditBody" style="color: var(--text-muted); margin: 0.5rem 0 1.5rem; font-size: 1rem;"></p>
-          <a href="#book" class="btn">Discuss This Model on a Call</a>
-        </div>
-      </div>
-
       <!-- Human in the Loop Team Section -->
       <div class="section-header" style="max-width: 800px;">
         <h2>Human-in-the-Loop: <em>Meet the people who'd run your account.</em></h2>
@@ -1101,6 +1076,31 @@
       </div>
     </div>
   </section>
+
+   <!-- TEAM & AUDIT (White Background) -->
+  <section id="team" class="bg-surface">
+    <div class="container">
+      <!-- Operational Audit Quiz -->
+      <div class="quiz-card" style="margin-bottom: 4rem;">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+          <h2>Quick Operational Audit</h2>
+          <p>Determine the right team structure for your current workload.</p>
+        </div>
+
+        <div id="quizStep1">
+          <p style="font-weight: 700; margin-bottom: 1rem;">1. What is your primary operational focus right now?</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="runAudit('AI Model Training & RLHF')">AI Model Training & RLHF</button>
+            <button class="btn btn-secondary" onclick="runAudit('Recurring Back-Office / Moderation')">Recurring Back-Office / Moderation</button>
+          </div>
+        </div>
+
+        <div id="quizResult" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+          <h3 id="auditTitle" style="color: var(--color-primary-dark); font-size: 1.4rem; font-weight: 800;"></h3>
+          <p id="auditBody" style="color: var(--text-muted); margin: 0.5rem 0 1.5rem; font-size: 1rem;"></p>
+          <a href="#book" class="btn">Discuss This Model on a Call</a>
+        </div>
+      </div>
 
   <!-- BOOK A CALL (Warm Matched Tint Background) -->
   <section id="book" class="bg-warm">
