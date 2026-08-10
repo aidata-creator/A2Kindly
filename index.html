@@ -221,7 +221,7 @@
       background-color: var(--bg-surface);
     }
 
-    .section-header { margin-bottom: 2.5rem; max-width: 680px; }
+    .section-header { margin-bottom: 2.5rem; max-width: 720px; }
     .section-header h2 {
       font-size: 2.35rem;
       font-weight: 800;
@@ -498,21 +498,35 @@
     .founder-sig h4 { font-size: 1rem; font-weight: 800; color: var(--color-primary-dark); }
     .founder-sig span { font-size: 0.88rem; color: var(--text-muted); font-weight: 500; }
 
-    /* Team Grid */
+    /* Human in the Loop Team Grid */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.25rem;
     }
     .team-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: flex-start;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid var(--color-primary-green);
+      box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.15);
     }
     .team-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
-    .team-card .role { font-size: 0.85rem; color: var(--color-primary-green); margin-bottom: 0.5rem; font-weight: 700; }
-    .team-card .desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.45; }
+    .team-card .role { font-size: 0.85rem; color: var(--color-primary-green); margin-bottom: 0.75rem; font-weight: 700; }
+    .team-card .desc { font-size: 0.825rem; color: var(--text-muted); line-height: 1.4; margin-top: auto; }
 
     /* Audit Quiz */
     .quiz-card {
@@ -531,9 +545,13 @@
       background-color: var(--bg-surface);
     }
 
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
-      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid { grid-template-columns: 1fr; }
+      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid, .team-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       section { padding: 60px 0; scroll-margin-top: 76px; }
     }
@@ -823,6 +841,26 @@
   <section id="pricing" class="bg-surface">
     <div class="container">
       <div class="section-header">
+        <h2>Real SLAs From Our Operational Pods</h2>
+        <p>Tangible performance metrics from active client accounts.</p>
+      </div>
+
+      <div class="metrics-grid" style="margin-bottom: 3.5rem;">
+        <div class="metric-box">
+          <h4>99.8%</h4>
+          <p>Double-blind auditing catches errors before output leaves Manila.</p>
+        </div>
+        <div class="metric-box">
+          <h4>2–3 Wks</h4>
+          <p>Average deployment time from kickoff to fully operational pod.</p>
+        </div>
+        <div class="metric-box">
+          <h4>10M+</h4>
+          <p>Touchpoints annually across retail, Web3, and enterprise workflows.</p>
+        </div>
+      </div>
+
+      <div class="section-header">
         <h2>No Minimum Seat Lock-Ins</h2>
         <p>Pay only when a task passes QA, or deploy dedicated full-time pods.</p>
       </div>
@@ -831,15 +869,15 @@
         <div class="pricing-card">
           <div>
             <h3>Per-Output Benchmarks</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Ideal for discrete data labeling, RLHF tasks, or variable volume projects. You pay strictly for output base, accepted records.</p>
+            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Ideal for discrete data labeling, RLHF tasks, or variable volume projects. You pay strictly for audited, accepted records.</p>
           </div>
-          <div class="pricing-price">From $1.00 / record</div>
+          <div class="pricing-price">From $0.05 / record</div>
         </div>
 
         <div class="pricing-card">
           <div>
             <h3>Dedicated Full-Time Pods</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Full-time managed Manila team members embedded directly into your tools.</p>
+            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Full-time managed Manila team members embedded directly into your tools (Slack, Labelbox, Zendesk).</p>
           </div>
           <div class="pricing-price">From $1,800 / month / seat</div>
         </div>
@@ -903,37 +941,81 @@
         </div>
       </div>
 
-      <!-- Team Grid -->
-      <div class="section-header">
-        <h2>Your Manila Leadership Pod</h2>
-        <p>Operational leads owning daily QA and delivery against your SLAs.</p>
+      <!-- Human in the Loop Team Section -->
+      <div class="section-header" style="max-width: 800px;">
+        <h2>Human-in-the-Loop: <em>Meet the people who'd run your account.</em></h2>
+        <p>Not stock photos. Not an offshore black box. These are the named people accountable for your work — and you'll talk to them, not an account manager.</p>
       </div>
 
       <div class="team-grid">
         <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Macar" class="team-avatar">
           <h4>Macar</h4>
           <div class="role">Head of Operations</div>
-          <div class="desc">Owns SLA delivery across all enterprise accounts.</div>
+          <div class="desc">Owns delivery against every SLA you sign.</div>
         </div>
+
         <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Jeh" class="team-avatar">
           <h4>Jeh</h4>
           <div class="role">Operations Manager</div>
-          <div class="desc">Directs daily pod reviews and weekly client QA reporting.</div>
+          <div class="desc">Your weekly quality report comes from her desk.</div>
         </div>
+
         <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&q=80" alt="Mico" class="team-avatar">
           <h4>Mico</h4>
           <div class="role">Data Operations Lead</div>
-          <div class="desc">Architects data schemas and workflow guidelines.</div>
+          <div class="desc">Designs the workflow before a single record moves.</div>
         </div>
+
         <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Fred" class="team-avatar">
           <h4>Fred</h4>
           <div class="role">Systems Development</div>
-          <div class="desc">Builds custom API connectors to your internal stack.</div>
+          <div class="desc">Builds the integrations that connect us to your stack.</div>
         </div>
+
         <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Allan" class="team-avatar">
+          <h4>Allan</h4>
+          <div class="role">Database & Admin</div>
+          <div class="desc">Keeps your data pipelines clean and auditable.</div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Riza" class="team-avatar">
           <h4>Riza</h4>
           <div class="role">Team Leader</div>
           <div class="desc">Enforces multi-stage auditing before batch delivery.</div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="Aira" class="team-avatar">
+          <h4>Aira</h4>
+          <div class="role">Data Auditor</div>
+          <div class="desc">Performs daily double-blind verification on outputs.</div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Tin" class="team-avatar">
+          <h4>Tin</h4>
+          <div class="role">Systems & Data</div>
+          <div class="desc">Maintains dataset integrity and schema mapping.</div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Grace" class="team-avatar">
+          <h4>Grace</h4>
+          <div class="role">Onboarding</div>
+          <div class="desc">Drives seamless pod setup and tool access setup.</div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80" alt="Chris" class="team-avatar">
+          <h4>Chris</h4>
+          <div class="role">Data Admin</div>
+          <div class="desc">Coordinates task batching and escalation routes.</div>
         </div>
       </div>
     </div>
