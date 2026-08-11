@@ -84,7 +84,7 @@
 
       /* Surface & UI Colors */
       --bg-surface: #FFFFFF;
-      --bg-warm: #F3F4F3;             /* Neutral warm tint matched to brand palette */
+      --bg-warm: #F8F9FA;             /* Warm off-white/light-grey hue for visual cadence */
       --bg-subtle: #E8ECE9;
       --border-color: #D1D8D4;
       
@@ -208,11 +208,15 @@
       border-color: var(--color-primary-dark);
     }
 
-    /* Section Structure */
+    /* Section Structure & Scroll Margins */
     section {
       padding: 90px 0;
       scroll-margin-top: 90px;
     }
+    #overview, #services, #how-we-work, #pricing, #story, #team, #quiz, #book {
+      scroll-margin-top: 90px;
+    }
+
     section.bg-warm {
       background-color: var(--bg-warm);
       border-top: 1px solid var(--border-color);
@@ -546,7 +550,7 @@
 
     /* Dynamic AI Audit Section Styles */
     .quiz-section {
-      background-color: var(--bg-warm);
+      background-color: var(--bg-surface);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       padding: 90px 0;
@@ -573,7 +577,7 @@
     .quiz-container {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--bg-surface);
+      background: var(--bg-warm);
       border: 2px solid var(--border-color);
       border-radius: var(--radius);
       padding: 2.5rem;
@@ -642,7 +646,7 @@
       margin-bottom: 1.5rem;
     }
     .audit-stat-box {
-      background: var(--bg-warm);
+      background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       padding: 1.25rem 1rem;
@@ -706,7 +710,10 @@
       .hero h1 { font-size: 2.5rem; }
       .service-grid, .pricing-grid, .metrics-grid, .speed-grid, .team-grid, .story-quotes-grid, .audit-stats-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      section { padding: 60px 0; scroll-margin-top: 76px; }
+      section, #overview, #services, #how-we-work, #pricing, #story, #team, #quiz, #book { 
+        padding: 60px 0; 
+        scroll-margin-top: 90px; 
+      }
     }
   </style>
 
@@ -766,9 +773,11 @@
             </video>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 
-  <!-- OVERVIEW / THE SHIFT SECTION -->
+  <!-- OVERVIEW / THE SHIFT SECTION (Warm Off-White Background) -->
   <section id="overview" class="bg-warm">
     <div class="container">
       
@@ -897,8 +906,8 @@
     </div>
   </section>
 
-  <!-- HOW WE WORK (Warm Matched Tint Background) -->
-  <section id="how-we-work" class="bg-warm">
+  <!-- HOW WE WORK (White Surface Background) -->
+  <section id="how-we-work" class="bg-surface">
     <div class="container">
       <div class="section-header">
         <span style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-green); display: block; margin-bottom: 0.5rem;">OUR OPERATIONAL ENGINE</span>
@@ -946,7 +955,7 @@
 
         <div class="hww-card">
           <h3>Native Stack Integration</h3>
-          <p>We work inside your preferred tools: Airtable, Chatfuel, GitHub, Google Workspace, Make, Slack, Streamlit, Vercel,  or custom internal APIs—no platform locking or friction.</p>
+          <p>We work inside your preferred tools: Airtable, Chatfuel, GitHub, Google Workspace, Make, Slack, Streamlit, Vercel, or custom internal APIs—no platform locking or friction.</p>
         </div>
 
         <div class="hww-card">
@@ -957,8 +966,8 @@
     </div>
   </section>
 
-  <!-- METRICS & PRICING (White Background) -->
-  <section id="pricing" class="bg-surface">
+  <!-- METRICS & PRICING (Warm Off-White Background) -->
+  <section id="pricing" class="bg-warm">
     <div class="container">
       <div class="section-header">
         <h2>Real SLAs From Our Operational Pods</h2>
@@ -1002,8 +1011,8 @@
     </div>
   </section>
   
-  <!-- OUR STORY & IMPACT SECTION -->
-  <section id="story" class="bg-warm">
+  <!-- OUR STORY & IMPACT SECTION (White Surface Background) -->
+  <section id="story" class="bg-surface">
     <div class="container">
       
       <!-- Section Header -->
@@ -1018,7 +1027,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
         
         <!-- Card 1: Established Legacy -->
-        <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
+        <div style="background: var(--bg-warm); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
           <h3 style="color: var(--color-primary-dark); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
             Established Legacy
           </h3>
@@ -1028,7 +1037,7 @@
         </div>
 
         <!-- Card 2: Bridging Human & AI -->
-        <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
+        <div style="background: var(--bg-warm); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
           <h3 style="color: var(--color-primary-dark); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
             Bridging Human &amp; AI
           </h3>
@@ -1038,7 +1047,7 @@
         </div>
 
         <!-- Card 3: Dignified Digital Work -->
-        <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
+        <div style="background: var(--bg-warm); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
           <h3 style="color: var(--color-primary-dark); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
             Dignified Digital Work
           </h3>
@@ -1050,7 +1059,7 @@
       </div>
 
       <!-- Quote Banner -->
-      <div style="border: 2px dashed var(--color-accent-amber); border-radius: var(--radius); padding: 1.5rem 2rem; text-align: center; background: var(--bg-surface); margin-bottom: 2.5rem;">
+      <div style="border: 2px dashed var(--color-accent-amber); border-radius: var(--radius); padding: 1.5rem 2rem; text-align: center; background: var(--bg-warm); margin-bottom: 2.5rem;">
         <p style="color: var(--color-primary-dark); font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; margin: 0; font-weight: 400;">
           "Combining deep-rooted community impact with enterprise-grade digital execution."
         </p>
@@ -1095,8 +1104,8 @@
     </div>
   </section>
 
-  <!-- TEAM (White Background) -->
-  <section id="team" class="bg-surface">
+  <!-- TEAM (Warm Off-White Background) -->
+  <section id="team" class="bg-warm">
     <div class="container">
       <div class="section-header" style="max-width: 800px;">
         <h2>Human-in-the-Loop: <em>Meet the people who'd run your account.</em></h2>
@@ -1177,7 +1186,7 @@
     </div>
   </section>
 
-  <!-- Dynamic Quick AI Audit Section -->
+  <!-- Dynamic Quick AI Audit Section (White Surface Background) -->
   <section id="quiz" class="quiz-section">
     <div class="container">
       <div class="section-title">
@@ -1258,8 +1267,8 @@
     </div>
   </section>
 
-  <!-- BOOK A CALL (White Background) -->
-  <section id="book" class="bg-surface">
+  <!-- BOOK A CALL (Warm Off-White Background) -->
+  <section id="book" class="bg-warm">
     <div class="container">
       <div class="section-header">
         <h2>Book a 20-Minute Call</h2>
