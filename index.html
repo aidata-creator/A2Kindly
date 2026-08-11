@@ -7,21 +7,21 @@
   <!-- SEO & Canonical -->
   <title>Kindly — Human-in-the-Loop Data Operations & Managed BPO in Manila</title>
   <meta name="description" content="Scale your data operations without adding internal management overhead. Dedicated Manila pods for RLHF, labeling, moderation, and back-office BPO.">
-  <link rel="canonical" href="https://kindly.ph">
+  <link rel="canonical" href="https://kindly.global">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kindly.ph">
+  <meta property="og:url" content="https://kindly.global">
   <meta property="og:title" content="Kindly — Human-in-the-Loop Data Operations in Manila">
   <meta property="og:description" content="Scale your data operations without adding internal management overhead. Built by social enterprise pioneers Mark Ruiz & Reese Fernandez-Ruiz.">
-  <meta property="og:image" content="https://kindly.ph/og-image.png">
+  <meta property="og:image" content="https://kindly.global/og-image.png">
 
   <!-- X (Twitter) Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://kindly.ph">
+  <meta name="twitter:url" content="https://kindly.global">
   <meta name="twitter:title" content="Kindly — Human-in-the-Loop Data Operations in Manila">
   <meta name="twitter:description" content="Scale your data operations without adding internal management overhead. Managed Manila teams for RLHF, annotation, and QA.">
-  <meta name="twitter:image" content="https://kindly.ph/og-image.png">
+  <meta name="twitter:image" content="https://kindly.global/og-image.png">
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -30,10 +30,10 @@
     "@graph": [
       {
         "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://kindly.ph/#organization",
+        "@id": "https://kindly.global/#organization",
         "name": "Kindly",
-        "url": "https://kindly.ph",
-        "logo": "https://kindly.ph/logo.png",
+        "url": "https://kindly.global",
+        "logo": "https://kindly.global/logo.png",
         "description": "Enterprise AI Data Operations & Managed BPO in Manila, Philippines.",
         "address": {
           "@type": "PostalAddress",
@@ -208,7 +208,7 @@
       border-color: var(--color-primary-dark);
     }
 
-    /* Section Structure & Scroll Margins */
+    /* Section Structure & Header Scroll Margins */
     section {
       padding: 90px 0;
       scroll-margin-top: 90px;
@@ -554,6 +554,7 @@
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       padding: 90px 0;
+      scroll-margin-top: 90px;
     }
     .section-title {
       max-width: 720px;
@@ -658,6 +659,7 @@
       color: var(--color-accent-amber);
       line-height: 1.1;
       margin-bottom: 0.35rem;
+      transition: all 0.2s ease-in-out;
     }
     .stat-lbl {
       font-size: 0.8rem;
@@ -1239,15 +1241,15 @@
             
             <div class="audit-stats-grid">
               <div class="audit-stat-box">
-                <div class="stat-val" id="statTimeSaved">--</div>
-                <div class="stat-lbl">Est. Time Saved</div>
+                <div class="stat-val" id="statTimeSaved">0%</div>
+                <div class="stat-lbl">Est. Cost/Time Reduction</div>
               </div>
               <div class="audit-stat-box">
-                <div class="stat-val" id="statAccuracy">--</div>
+                <div class="stat-val" id="statAccuracy">0%</div>
                 <div class="stat-lbl">Target SLA Quality</div>
               </div>
               <div class="audit-stat-box">
-                <div class="stat-val" id="statTimeline">--</div>
+                <div class="stat-val" id="statTimeline">0 Wks</div>
                 <div class="stat-lbl">Deployment Speed</div>
               </div>
             </div>
@@ -1283,7 +1285,7 @@
 
   <footer>
     <div class="container">
-      <p><a href="mailto:hello@kindly.ph" style="color: var(--color-primary-green); text-decoration: none; font-weight: 700;">hello@kindly.ph</a> · Manila, Philippines</p>
+      <p><a href="mailto:hello@kindly.global" style="color: var(--color-primary-green); text-decoration: none; font-weight: 700;">hello@kindly.global</a> · Manila, Philippines</p>
       <p style="margin-top: 0.5rem;">A business under Atindata · Atin Group &copy; 2026 Kindly. All rights reserved.</p>
     </div>
   </footer>
@@ -1306,6 +1308,21 @@
       }
     }
 
+    function animateValue(id, start, end, duration, suffix = "") {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const currentVal = (progress * (end - start) + start).toFixed(1);
+        obj.innerHTML = (currentVal % 1 === 0 ? parseInt(currentVal) : currentVal) + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
     function showAuditResults() {
       const resultStep = document.getElementById('quizResult');
       resultStep.classList.add('active');
@@ -1315,9 +1332,9 @@
       const s = auditData[3];
 
       let title = "Recommended Setup: Dedicated Managed Manila Pod";
-      let timeSaved = "60-75%";
-      let accuracy = "99.8%";
-      let timeline = "2-3 Wks";
+      let targetTimeSaved = 35;
+      let targetAccuracy = 99.8;
+      let targetTimeline = 2;
       let details = "Based on your inputs, your operations will benefit most from a hybrid approach—pairing direct automation triggers with a human-in-the-loop Manila QA pod.";
       let actions = [
         "Deploy dedicated Manila specialists trained in your tool stack",
@@ -1327,9 +1344,9 @@
 
       if (b === 'data') {
         title = "Recommended Setup: Per-Output Data Processing Pod";
-        timeSaved = "70-85%";
-        accuracy = "99.9%";
-        timeline = "1-2 Wks";
+        targetTimeSaved = 45;
+        targetAccuracy = 99.9;
+        targetTimeline = 1;
         details = "Your primary bottleneck is manual data handling. An automated extraction pipeline combined with human QA validation will eliminate repetitive overhead instantly.";
         actions = [
           "Deploy structured OCR & LLM extraction schemas",
@@ -1338,22 +1355,32 @@
         ];
       } else if (b === 'support') {
         title = "Recommended Setup: AI Support & Escalation Pod";
-        timeSaved = "55-70%";
-        accuracy = "99.5%";
-        timeline = "2 Wks";
+        targetTimeSaved = 40;
+        targetAccuracy = 99.5;
+        targetTimeline = 2;
         details = "For support workflows, combining instant AI ticket parsing with specialized Manila agents yields maximum response speed without sacrificing brand tone.";
         actions = [
           "Set up automated triage and first-pass AI draft responses",
           "Deploy human agents in Manila for nuanced edge cases and escalations",
           "Full CRM integration (Zendesk, Salesforce, HubSpot)"
         ];
+      } else if (b === 'literacy') {
+        targetTimeSaved = 30;
+        targetAccuracy = 99.0;
+        targetTimeline = 3;
+      }
+
+      if (s === 'large' || s === 'enterprise') {
+        targetTimeSaved += 10;
       }
 
       document.getElementById('auditRecommendation').innerText = title;
-      document.getElementById('statTimeSaved').innerText = timeSaved;
-      document.getElementById('statAccuracy').innerText = accuracy;
-      document.getElementById('statTimeline').innerText = timeline;
       document.getElementById('auditDetails').innerText = details;
+
+      // Dynamic animation trigger
+      animateValue("statTimeSaved", 0, targetTimeSaved, 1000, "% Cost Reduction");
+      animateValue("statAccuracy", 90.0, targetAccuracy, 1000, "%");
+      animateValue("statTimeline", 0, targetTimeline, 800, " Wks Deployment");
 
       const actionsList = document.getElementById('auditActionItems');
       actionsList.innerHTML = '';
