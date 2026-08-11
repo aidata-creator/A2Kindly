@@ -299,28 +299,18 @@
       font-weight: 700;
       color: var(--text-muted);
     }
-    .artifact-view {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .artifact-box {
-      background: var(--bg-warm);
-      border: 1px solid var(--border-color);
-      padding: 1rem;
+    .artifact-video-container {
+      width: 100%;
       border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.825rem;
-      white-space: pre-wrap;
-      overflow-x: auto;
-      color: var(--text-main);
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border-color);
+      aspect-ratio: 16 / 9;
     }
-    .artifact-box-title {
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--color-primary-dark);
-      margin-bottom: 0.5rem;
+    .artifact-video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
@@ -576,7 +566,7 @@
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
-      .service-grid, .pricing-grid, .artifact-view, .metrics-grid, .speed-grid, .team-grid, .story-quotes-grid { grid-template-columns: 1fr; }
+      .service-grid, .pricing-grid, .metrics-grid, .speed-grid, .team-grid, .story-quotes-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       section { padding: 60px 0; scroll-margin-top: 76px; }
     }
@@ -625,30 +615,17 @@
           <a href="#how-we-work" class="btn btn-secondary">How We Work</a>
         </div>
 
-        <!-- Real Work Artifact Preview -->
+        <!-- Real Work Artifact Video Preview -->
         <div class="artifact-card">
           <div class="artifact-header">
-            <span>REAL WORK ARTIFACT: RLHF PROMPT EVALUATION & RED-TEAMING</span>
-            <span style="color: var(--color-primary-green);">QA STATUS: VERIFIED BY MANILA POD</span>
+            <span>REAL WORK IN ACTION: MANILA OPERATIONS DEMO</span>
+            <span style="color: var(--color-primary-green);">STATUS: LIVE WORKFLOW</span>
           </div>
-          <div class="artifact-view">
-            <div>
-              <span class="artifact-box-title">Raw Model Input & Candidate Response</span>
-              <div class="artifact-box">{
-  "prompt": "Evaluate financial compliance under SEC Rule 10b-5...",
-  "model_output": "The transaction qualifies for safe harbor without reporting...",
-  "flag": null
-}</div>
-            </div>
-            <div>
-              <span class="artifact-box-title">Kindly Evaluated Output (JSON Export)</span>
-              <div class="artifact-box" style="border-color: var(--color-primary-green);">{
-  "hallucination_detected": true,
-  "corrected_reasoning": "Failed safe harbor threshold §240.10b5-1(c).",
-  "rlhf_preference_score": 1,
-  "audited_by": "Pod_Alpha_Manila"
-}</div>
-            </div>
+          <div class="artifact-video-container">
+            <video autoplay loop muted playsinline poster="/images/video-poster.jpg">
+              <source src="work-demo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 
