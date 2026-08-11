@@ -625,7 +625,7 @@
           <a href="#how-we-work" class="btn btn-secondary">How We Work</a>
         </div>
 
-       <!-- Real Work Artifact Preview -->
+      <!-- Real Work Artifact Preview -->
         <div class="artifact-card">
           <div class="artifact-header">
             <span>REAL WORK ARTIFACT: DATA OPERATIONS & AUTOMATION IN ACTION</span>
@@ -633,13 +633,16 @@
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 6px; background: #000;">
             <video 
-              src="work-demo.mp4" 
+              controls
               autoplay 
               muted 
               loop 
               playsinline 
+              preload="metadata"
               style="width: 100%; height: auto; display: block;"
             >
+              <source src="./work-demo.mp4" type="video/mp4">
+              <source src="work-demo.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
