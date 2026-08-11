@@ -280,7 +280,7 @@
     }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
-    /* Artifact Preview Card */
+    /* Artifact Preview Card Fix */
     .artifact-card {
       background: var(--bg-surface);
       border: 2px solid var(--border-color);
@@ -288,6 +288,8 @@
       padding: 1.5rem;
       margin-top: 2rem;
       box-shadow: 0 6px 16px rgba(8, 80, 65, 0.05);
+      width: 100%;
+      box-sizing: border-box;
     }
     .artifact-header {
       display: flex;
@@ -631,7 +633,9 @@
             <span>REAL WORK ARTIFACT: DATA OPERATIONS & AUTOMATION IN ACTION</span>
             <span style="color: var(--color-primary-green);">QA STATUS: VERIFIED BY MANILA POD</span>
           </div>
-          <div style="width: 100%; border-radius: 6px; overflow: hidden; background: #000; text-align: center;">
+          
+          <!-- Strict aspect-ratio frame container -->
+          <div style="position: relative; width: 100%; padding-top: 52%; background: #000; border-radius: 6px; overflow: hidden;">
             <video 
               controls
               autoplay 
@@ -639,7 +643,7 @@
               loop 
               playsinline 
               preload="metadata"
-              style="max-width: 100%; max-height: 400px; width: auto; height: auto; display: inline-block; vertical-align: middle;"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;"
             >
               <source src="./work-demo.mp4" type="video/mp4">
               <source src="work-demo.mp4" type="video/mp4">
@@ -647,7 +651,7 @@
             </video>
           </div>
         </div>
-
+        
   <!-- OVERVIEW / THE SHIFT SECTION -->
   <section id="overview" class="bg-warm">
     <div class="container">
