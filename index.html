@@ -625,35 +625,54 @@
           <a href="#how-we-work" class="btn btn-secondary">How We Work</a>
         </div>
 
-      <!-- Real Work Artifact Preview -->
+        <!-- Real Work Artifact Preview -->
         <div class="artifact-card">
           <div class="artifact-header">
-            <span>REAL WORK ARTIFACT: DATA OPERATIONS & AUTOMATION IN ACTION</span>
+            <span>REAL WORK ARTIFACT: RLHF PROMPT EVALUATION & RED-TEAMING</span>
             <span style="color: var(--color-primary-green);">QA STATUS: VERIFIED BY MANILA POD</span>
           </div>
-          <div style="width: 100%; border-radius: 6px; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center;">
-            <video 
-              controls
-              autoplay 
-              muted 
-              loop 
-              playsinline 
-              preload="metadata"
-              style="width: 100%; max-height: 450px; object-fit: contain; display: block;"
-            >
-              <source src="./work-demo.mp4" type="video/mp4">
-              <source src="work-demo.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+          <div class="artifact-view">
+            <div>
+              <span class="artifact-box-title">Raw Model Input & Candidate Response</span>
+              <div class="artifact-box">{
+  "prompt": "Evaluate financial compliance under SEC Rule 10b-5...",
+  "model_output": "The transaction qualifies for safe harbor without reporting...",
+  "flag": null
+}</div>
+            </div>
+            <div>
+              <span class="artifact-box-title">Kindly Evaluated Output (JSON Export)</span>
+              <div class="artifact-box" style="border-color: var(--color-primary-green);">{
+  "hallucination_detected": true,
+  "corrected_reasoning": "Failed safe harbor threshold §240.10b5-1(c).",
+  "rlhf_preference_score": 1,
+  "audited_by": "Pod_Alpha_Manila"
+}</div>
+            </div>
           </div>
         </div>
+
+        <!-- Compliance Badges -->
+        <div class="trust-bar">
+          <div class="compliance-badge">
+            <span class="check-icon">✓</span> ISO 27001 Certified Ready
+          </div>
+          <div class="compliance-badge">
+            <span class="check-icon">✓</span> SOC 2 Type II Compliant
+          </div>
+          <div class="trust-item"><strong>Formats:</strong> JSON, XML, Bounding Boxes, Audio & Custom APIs</div>
+          <div class="trust-item"><strong>Stack:</strong> Labelbox, Scale AI, Databricks, Salesforce</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- OVERVIEW / THE SHIFT SECTION -->
   <section id="overview" class="bg-warm">
     <div class="container">
       
-     <!-- Highlight Banner Row (4 Columns in 1 Grid Line) -->
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 3.5rem;">
+      <!-- Highlight Banner Row -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 3.5rem;">
         <div>
           <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
             Founded by the team behind <strong>Hapinoy</strong> and <strong>Rags2Riches</strong> — social enterprises that have worked with thousands of Filipino micro-entrepreneurs.
@@ -894,8 +913,8 @@
         <h2>Our Story &amp; <em>Impact</em></h2>
       </div>
 
-      <!-- 3-Column Pillar Grid (Single Row) -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+      <!-- 3-Column Pillar Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
         
         <!-- Card 1: Established Legacy -->
         <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
@@ -906,28 +925,6 @@
             Our roots run deep in local empowerment through <strong style="color: var(--text-main);">Hapinoy and Rags2Riches</strong>. We bring years of proven experience in driving community impact, economic development, and sustainable systems to the digital and AI landscape.
           </p>
         </div>
-
-        <!-- Card 2: Bridging Human & AI -->
-        <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
-          <h3 style="color: var(--color-primary-dark); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
-            Bridging Human &amp; AI
-          </h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 400;">
-            We believe technology shouldn't displace people—it should unleash their potential. We combine smart automation with a skilled, dedicated workforce to handle high-stakes data workflows, AI QA, and custom implementations.
-          </p>
-        </div>
-
-        <!-- Card 3: Dignified Digital Work -->
-        <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
-          <h3 style="color: var(--color-primary-dark); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">
-            Dignified Digital Work
-          </h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 400;">
-            Through our hybrid model—combining core in-house specialists with scalable output-based talent—we deliver precision to businesses while providing dignified, high-value opportunities to our communities.
-          </p>
-        </div>
-
-      </div>
 
         <!-- Card 2: Bridging Human & AI -->
         <div style="background: var(--bg-surface); border: 2px solid var(--border-color); border-radius: var(--radius); padding: 2rem;">
